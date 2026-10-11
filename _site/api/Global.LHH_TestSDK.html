@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class LHH_TestSDK | LHH Test SDK </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class LHH_TestSDK | LHH Test SDK ">
+    
+    <meta name="description" content="Entry point for automated tests against a device build from the Unity Editor (NUnit, Edit Mode or Play Mode).">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Global.LHH_TestSDK">
+
+
+
+  <h1 id="Global_LHH_TestSDK" data-uid="Global.LHH_TestSDK" class="text-break">Class LHH_TestSDK</h1>
+  <div class="markdown level0 summary"><p>Entry point for automated tests against a device build from the Unity Editor (NUnit, Edit Mode or Play Mode).</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">LHH_TestSDK</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Global.html">Global</a></h6>
+  <h6><strong>Assembly</strong>: LHH.TestSDK.Docs.dll</h6>
+  <h5 id="Global_LHH_TestSDK_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LHH_TestSDK : MonoBehaviour</code></pre>
+  </div>
+  <h5 id="Global_LHH_TestSDK_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>First API call on a run: connect to Test Controller, lease device, Appium session, wait for player hub.
+Configure via menu LHH Test SDK - Settings (gRPC, platform, app path, bundle id).
+Requires LHH_AUTOMATION_TEST and a running Test Controller. Editor-only; not in player builds.</p>
+</div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Global_LHH_TestSDK_CleanUpAfterTest_" data-uid="Global.LHH_TestSDK.CleanUpAfterTest*"></a>
+  <h4 id="Global_LHH_TestSDK_CleanUpAfterTest" data-uid="Global.LHH_TestSDK.CleanUpAfterTest">CleanUpAfterTest()</h4>
+  <div class="markdown level1 summary"><p>Returns the leased device to the Test Controller and resets setup state for the next run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CleanUpAfterTest()</code></pre>
+  </div>
+  <h5 id="Global_LHH_TestSDK_CleanUpAfterTest_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Called automatically when the Unity Test Runner finishes a run or reports a runner error.
+Manual calls are rarely needed; use only if you run tests outside the Test Runner or need early teardown.</p>
+</div>
+
+
+  <a id="Global_LHH_TestSDK_ClickButton_" data-uid="Global.LHH_TestSDK.ClickButton*"></a>
+  <h4 id="Global_LHH_TestSDK_ClickButton_System_String_System_Single_" data-uid="Global.LHH_TestSDK.ClickButton(System.String,System.Single)">ClickButton(string, float)</h4>
+  <div class="markdown level1 summary"><p>Waits for a UI object, then invokes its Unity UI Button onClick in the running game.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task ClickButton(string buttonPath, float timeoutSeconds = 30)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">buttonPath</span></td>
+        <td><p>Hierarchy path with / separators (root via GameObject.Find, children via Transform.Find).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">timeoutSeconds</span></td>
+        <td><p>Maximum seconds to wait for the button object before failing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_ClickButton_System_String_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use, then WaitForObject(buttonPath) before click. Not for native store UI; use PurchaseByButton for IAP buy buttons.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_ClickButton_System_String_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.ClickButton(
+    "PopupManager/ShopConfirmPopup(Clone)/Panel/Background/Button Confirm");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, hub command failed, or click could not run.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeoutexception">TimeoutException</a></td>
+        <td><p>Object not found before <code class="paramref">timeoutSeconds</code> elapses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_GetGameData_" data-uid="Global.LHH_TestSDK.GetGameData*"></a>
+  <h4 id="Global_LHH_TestSDK_GetGameData_System_String_" data-uid="Global.LHH_TestSDK.GetGameData(System.String)">GetGameData(string)</h4>
+  <div class="markdown level1 summary"><p>Reads PlayerPrefs from the game player for the given key (returned as string).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetGameData(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>PlayerPrefs key, e.g. coin or heart.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><p>Int, float, or string value encoded as string (player tries int, then float, then string).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_GetGameData_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Parse in tests with int.TryParse etc.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_GetGameData_System_String__examples">Examples</h5>
+  <pre><code class="lang-csharp">string raw = await LHH_TestSDK.GetGameData("coin");
+Assert.IsTrue(int.TryParse(raw, out int coins));</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed or the player could not read the key.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_GetText_" data-uid="Global.LHH_TestSDK.GetText*"></a>
+  <h4 id="Global_LHH_TestSDK_GetText_System_String_System_Single_" data-uid="Global.LHH_TestSDK.GetText(System.String,System.Single)">GetText(string, float)</h4>
+  <div class="markdown level1 summary"><p>Waits for a UI object, then reads displayed text from the running game player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetText(string textPath, float timeoutSeconds = 30)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">textPath</span></td>
+        <td><p>Hierarchy path with / separators (same rules as ClickButton and WaitForObject).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">timeoutSeconds</span></td>
+        <td><p>Maximum seconds to wait for the object before failing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><p>Text content reported by the player for the object at <code class="paramref">textPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_GetText_System_String_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use, then WaitForObject(textPath) before reading. Supports Unity UI Text and TextMeshPro on the target GameObject.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_GetText_System_String_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">string label = await LHH_TestSDK.GetText("HUD/CoinLabel");
+Assert.IsTrue(int.TryParse(label, out int coins));</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, hub command failed, or text could not be read.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeoutexception">TimeoutException</a></td>
+        <td><p>Object not found before <code class="paramref">timeoutSeconds</code> elapses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_LogError_" data-uid="Global.LHH_TestSDK.LogError*"></a>
+  <h4 id="Global_LHH_TestSDK_LogError_System_String_" data-uid="Global.LHH_TestSDK.LogError(System.String)">LogError(string)</h4>
+  <div class="markdown level1 summary"><p>Writes a message to the Unity Console in red (calls LogWithColor with red).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void LogError(string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Text to log.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_LogError_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use for assertion detail without failing the test until you call NUnit Assert.</p>
+</div>
+
+
+  <a id="Global_LHH_TestSDK_LogWithColor_" data-uid="Global.LHH_TestSDK.LogWithColor*"></a>
+  <h4 id="Global_LHH_TestSDK_LogWithColor_System_String_UnityEngine_Color_" data-uid="Global.LHH_TestSDK.LogWithColor(System.String,UnityEngine.Color)">LogWithColor(string, Color)</h4>
+  <div class="markdown level1 summary"><p>Writes a message to the Unity Console with the given color (rich text).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void LogWithColor(string message, Color color)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Text to log.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Color</span></td>
+        <td><span class="parametername">color</span></td>
+        <td><p>Color applied to the message in the Console window.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_LogWithColor_System_String_UnityEngine_Color__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Does not contact the Test Controller; safe to use anywhere in a test.</p>
+</div>
+
+
+  <a id="Global_LHH_TestSDK_Purchase_" data-uid="Global.LHH_TestSDK.Purchase*"></a>
+  <h4 id="Global_LHH_TestSDK_Purchase_System_String_" data-uid="Global.LHH_TestSDK.Purchase(System.String)">Purchase(string)</h4>
+  <div class="markdown level1 summary"><p>Starts in-app purchase by store catalog product id (no in-game button click).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task Purchase(string catalogProductId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">catalogProductId</span></td>
+        <td><p>IAP product id configured in the game.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_Purchase_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Controller sends purchase to the Unity player, then drives the native store sheet.
+Prefer PurchaseByButton when the test must tap a shop UI element.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_Purchase_System_String__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.Purchase("com.example.coins_1000");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>catalogProductId is null or whitespace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, purchase failed, or timed out (3 minutes).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_PurchaseByButton_" data-uid="Global.LHH_TestSDK.PurchaseByButton*"></a>
+  <h4 id="Global_LHH_TestSDK_PurchaseByButton_System_String_" data-uid="Global.LHH_TestSDK.PurchaseByButton(System.String)">PurchaseByButton(string)</h4>
+  <div class="markdown level1 summary"><p>Clicks an in-game shop buy button and completes purchase via the native store UI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; PurchaseByButton(string buttonPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">buttonPath</span></td>
+        <td><p>Hierarchy path to a Unity UI Button (same format as WaitForObject).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><p>True if the Test Controller reports success; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_PurchaseByButton_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Controller taps the button, waits for the IAP sheet, and confirms buy. Use ClickButton for non-IAP UI.
+Use Purchase when you have a catalog product id instead of a button path.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_PurchaseByButton_System_String__examples">Examples</h5>
+  <pre><code class="lang-csharp">bool ok = await LHH_TestSDK.PurchaseByButton(
+    "__VIEWS__/Shop/.../Button Buy");
+Assert.IsTrue(ok);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, or the purchase client is not initialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_WaitForObject_" data-uid="Global.LHH_TestSDK.WaitForObject*"></a>
+  <h4 id="Global_LHH_TestSDK_WaitForObject_System_String_System_Single_" data-uid="Global.LHH_TestSDK.WaitForObject(System.String,System.Single)">WaitForObject(string, float)</h4>
+  <div class="markdown level1 summary"><p>Blocks until a GameObject exists in the game player hierarchy at the given path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task WaitForObject(string objectPath, float timeoutSeconds = 30)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">objectPath</span></td>
+        <td><p>Hierarchy path with / separators (same rules as ClickButton).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">timeoutSeconds</span></td>
+        <td><p>Maximum seconds to wait before throwing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_WaitForObject_System_String_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Polls every 2 seconds. Runs implicit setup on first use.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_WaitForObject_System_String_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.WaitForObject("iap_manager", timeoutSeconds: 30f);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Implicit setup failed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeoutexception">TimeoutException</a></td>
+        <td><p>Object not found before timeoutSeconds elapses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_WaitForScene_" data-uid="Global.LHH_TestSDK.WaitForScene*"></a>
+  <h4 id="Global_LHH_TestSDK_WaitForScene_System_String_System_Single_" data-uid="Global.LHH_TestSDK.WaitForScene(System.String,System.Single)">WaitForScene(string, float)</h4>
+  <div class="markdown level1 summary"><p>Blocks until a loaded scene with the given name is active in the game player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task WaitForScene(string waitScene, float timeoutSeconds = 30)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">waitScene</span></td>
+        <td><p>Scene name to match (case-sensitive), compared against all currently loaded scenes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">timeoutSeconds</span></td>
+        <td><p>Maximum time to wait before failing the test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_WaitForScene_System_String_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Polls every 2 seconds. Runs implicit setup on first use.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_WaitForScene_System_String_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.WaitForScene("Home", timeoutSeconds: 50f);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Implicit setup failed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeoutexception">TimeoutException</a></td>
+        <td><p>No matching scene before timeoutSeconds elapses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      LHH Test SDK
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
