@@ -1,0 +1,16 @@
+/* Custom logos are often large SVGs; DocFX does not cap navbar logo size by default. */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 8px 15px;
+  float: left;
+}
+
+.navbar-brand img#logo,
+.navbar-brand svg#logo {
+  height: 32px;
+  width: auto;
+  max-width: 160px;
+  display: block;
+}
