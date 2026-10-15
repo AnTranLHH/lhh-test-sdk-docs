@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Writing test cases | LHH Test SDK </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Writing test cases | LHH Test SDK ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="LHH Test SDK">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="writing-test-cases">Writing test cases</h1>
+
+<p>Tests are ordinary <strong>NUnit</strong> tests in the Unity Editor. They call static methods on <strong><code>LHH_TestSDK</code></strong> to control the game on a connected <strong>Android</strong> device.</p>
+<p>API details: <a href="../api/Global.LHH_TestSDK.html">Scripting API — LHH_TestSDK</a>.</p>
+<h2 id="where-to-put-tests">Where to put tests</h2>
+<p>Add a test assembly under your project, for example <code>Assets/Tests/...</code>, with references to Unity Test Framework and the Test SDK assemblies (follow how your game repo already sets up Edit Mode tests).</p>
+<h2 id="edit-mode-vs-play-mode">Edit Mode vs Play Mode</h2>
+<p>Most automation tests run in <strong>Edit Mode</strong> so the Editor drives the device while the game runs on hardware:</p>
+<pre><code class="lang-csharp">[Test]
+[RequiresPlayMode(false)]
+public async Task Example_flow()
+{
+    await LHH_TestSDK.WaitForScene(&quot;Home&quot;, timeoutSeconds: 50f);
+    await LHH_TestSDK.WaitForObject(&quot;iap_manager&quot;);
+    await LHH_TestSDK.ClickButton(&quot;__VIEWS__/Shop/.../Button Open&quot;);
+}
+</code></pre>
+<p>Use <code>async Task</code> test methods and <code>await</code> every SDK call.</p>
+<h2 id="typical-flow">Typical flow</h2>
+<ol>
+<li><strong>Wait for state</strong> — <code>WaitForScene</code>, <code>WaitForObject</code> (poll every 2 seconds until timeout).</li>
+<li><strong>Act</strong> — <code>ClickButton</code> for normal UI; IAP shop buy flows use <code>PurchaseByButton</code> or <code>Purchase</code>.</li>
+<li><strong>Assert</strong> — NUnit <code>Assert.*</code> on values from <code>GetGameData</code>, <code>GetText</code>, or your own helpers.</li>
+</ol>
+<p>Example reading PlayerPrefs on the device:</p>
+<pre><code class="lang-csharp">string raw = await LHH_TestSDK.GetGameData(&quot;coin&quot;);
+Assert.IsTrue(int.TryParse(raw, out int coins));
+Assert.GreaterOrEqual(coins, 1000);
+</code></pre>
+<h2 id="hierarchy-paths-buttons-and-objects">Hierarchy paths (buttons and objects)</h2>
+<p>Paths use <strong><code>/</code></strong> between hierarchy segments, same rules for <code>WaitForObject</code>, <code>ClickButton</code>, and <code>GetText</code>:</p>
+<ul>
+<li>Root objects: path segment matches <code>GameObject.Find</code>.</li>
+<li>Children: resolved with <code>Transform.Find</code> under the previous segment.</li>
+</ul>
+<p><strong>Copy paths from the Editor:</strong></p>
+<ul>
+<li><strong>LHH Test SDK → Extract Object Path</strong></li>
+<li>Or <strong>GameObject → LHH Test SDK → Extract Object Path</strong> with a object selected.</li>
+</ul>
+<p>Paste the copied string into your test constants. Real projects often use long paths under prefixes such as <code>__VIEWS__/...</code>.</p>
+<h2 id="ui-clicks-vs-in-app-purchase">UI clicks vs in-app purchase</h2>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tap a normal Unity UI button</td>
+<td><code>ClickButton(path)</code></td>
+</tr>
+<tr>
+<td>Tap shop buy + complete native store sheet</td>
+<td><code>PurchaseByButton(path)</code></td>
+</tr>
+<tr>
+<td>Purchase by store product id (no button path)</td>
+<td><code>Purchase(catalogProductId)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Do not use <code>ClickButton</code> for IAP buy buttons that must trigger the native store UI—use <code>PurchaseByButton</code>.</p>
+<h2 id="logging-during-investigation">Logging during investigation</h2>
+<p>These only write to the Unity Console; they do not talk to the controller:</p>
+<pre><code class="lang-csharp">LHH_TestSDK.LogWithColor(&quot;checkpoint A&quot;, Color.cyan);
+LHH_TestSDK.LogError(&quot;coins before assert: &quot; + coins);
+</code></pre>
+<h2 id="timeouts">Timeouts</h2>
+<p><code>WaitForScene</code>, <code>WaitForObject</code>, <code>ClickButton</code>, and <code>GetText</code> accept optional <strong><code>timeoutSeconds</code></strong> (default <strong>30</strong>). Increase for slow loads or heavy scenes.</p>
+<h2 id="next-step">Next step</h2>
+<p><a href="running-tests.html">Running tests</a></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/writing-tests.md#lines-1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      LHH Test SDK
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Running tests | LHH Test SDK </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Running tests | LHH Test SDK ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="LHH Test SDK">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="running-tests">Running tests</h1>
+
+<p><strong>Android only</strong> until a future release documents iOS.</p>
+<h2 id="checklist-before-run">Checklist before Run</h2>
+<ol>
+<li><strong>Test SDK</strong> installed in the project (<a href="install-sdk.html">Install the Test SDK</a>).</li>
+<li><strong><code>com.lhh.testcontroller.shared</code></strong> present and aligned with the SDK/controller version dev released.</li>
+<li><strong>Test Controller</strong> <strong>Running</strong> in <strong>LHH Test SDK → Settings</strong> → Advance Settings (<strong>Run Test Server</strong>).</li>
+<li><strong>Android device</strong> connected (USB debugging); controller can see it via Appium.</li>
+<li><strong>Settings</strong> filled in:
+<ul>
+<li><strong>Platform:</strong> Android</li>
+<li><strong>App path:</strong> automation-enabled <strong>APK</strong> (contains InAppTestRunner + <code>LHH_AUTOMATION_TEST</code> on Android)</li>
+<li><strong>Bundle ID</strong> matches the APK (override or Player Settings)</li>
+<li><strong>gRPC server address:</strong> <code>http://127.0.0.1:5050</code> unless your machine uses another host/port</li>
+</ul>
+</li>
+<li>Player build is the version QA expects (rebuild and refresh <strong>App path</strong> after SDK/shared updates).</li>
+</ol>
+<h2 id="run-from-test-runner">Run from Test Runner</h2>
+<ol>
+<li><strong>Window → General → Test Runner</strong></li>
+<li>Select <strong>EditMode</strong> (or <strong>PlayMode</strong> if your team uses it for specific tests).</li>
+<li>Run one test, a fixture, or all tests.</li>
+</ol>
+<p>On the <strong>first</strong> <code>LHH_TestSDK</code> call in that run, the SDK performs implicit setup (device lease, Appium session, hub wait). Setup can take tens of seconds—this is normal.</p>
+<p>When the <strong>entire run</strong> completes (pass or fail), the SDK returns the leased device automatically. You rarely need to call <code>CleanUpAfterTest</code> yourself.</p>
+<h2 id="what-good-looks-like">What “good” looks like</h2>
+<ul>
+<li>Unity Console: setup logs, then your test logs/assertions.</li>
+<li>Device: app launches (if <strong>App path</strong> set), UI responds to clicks driven from the Editor.</li>
+<li>No <code>InvalidOperationException</code> for hub not connected or device assignment failed.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Things to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command hub is not connected</td>
+<td>APK built <strong>without</strong> InAppTestRunner / automation define; wrong bundle id; controller not running; firewall blocking gRPC.</td>
+</tr>
+<tr>
+<td>Test device assignment failed</td>
+<td>Another test holding the device; controller not running; no free Android device.</td>
+</tr>
+<tr>
+<td>Timed out waiting for object/scene</td>
+<td>Wrong path (use <strong>Extract Object Path</strong>); object not loaded yet—increase timeout; game not on expected scene.</td>
+</tr>
+<tr>
+<td>Failed to click button</td>
+<td>Path not a <strong>Button</strong>; object inactive; use <code>WaitForObject</code> path first.</td>
+</tr>
+<tr>
+<td>Purchase failures</td>
+<td>Use <code>PurchaseByButton</code> / <code>Purchase</code>; store/account sandbox; allow up to <strong>3 minutes</strong> for <code>Purchase</code>.</td>
+</tr>
+<tr>
+<td>Empty app path warning</td>
+<td>Set <strong>App path</strong> in Settings; session may not launch the build you intend.</td>
+</tr>
+<tr>
+<td>RPC / type errors after upgrade</td>
+<td>Update <strong><code>com.lhh.testsdk</code></strong> and <strong><code>com.lhh.testcontroller.shared</code></strong>, re-run <strong>Install Test SDK</strong>, restart <strong>Test Server</strong>, use a new APK.</td>
+</tr>
+</tbody>
+</table>
+<p>For controller-side logs, see the Progress panel in Settings or logs under <code>~/lhh-auto-test-controller/.run/</code> when using the installed controller repo.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="../api/Global.LHH_TestSDK.html">Scripting API — LHH_TestSDK</a> — full method list and parameters.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/running-tests.md#lines-1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      LHH Test SDK
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -72,8 +72,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="lhh-test-sdk">LHH Test SDK</h1>
 
-<p>Use <strong>LHH_TestSDK</strong> from NUnit tests in the Unity Editor to drive a <strong>real device build</strong> through the <a href="https://github.com/AnTranLHH/lhh-test-controller">Test Controller</a>: game UI, waits, PlayerPrefs checks, and in-app purchases.</p>
-<p>This site has two parts (as we add them):</p>
+<p>Use <strong>LHH_TestSDK</strong> from NUnit tests in the Unity Editor to drive a <strong>real Android device build</strong> through the Test Controller: game UI, waits, PlayerPrefs checks, and in-app purchases. <strong>iOS is not supported yet.</strong></p>
 <table>
 <thead>
 <tr>
@@ -84,7 +83,7 @@
 <tbody>
 <tr>
 <td><strong>Manual</strong></td>
-<td>Setup, settings, how to write your first test, object paths</td>
+<td>Install SDK, controller, write and run tests (for QA)</td>
 </tr>
 <tr>
 <td><strong>Scripting API</strong></td>
@@ -94,10 +93,11 @@
 </table>
 <h2 id="before-you-write-tests">Before you write tests</h2>
 <ol>
-<li>Install the Test SDK in your Unity project.</li>
-<li>Start the Test Controller (and Appium) on your machine or CI agent.</li>
-<li>Open <strong>LHH Test SDK → Settings</strong> and set gRPC address, platform, app path, and bundle id.</li>
+<li>Add <strong>com.lhh.testsdk</strong> from Bitbucket and run <strong>Install Test SDK</strong> in <strong>LHH Test SDK → Settings</strong>.</li>
+<li>Install and <strong>Run Test Server</strong> from the same window (Advance Settings).</li>
+<li>Set gRPC address, <strong>Android</strong> app path (<code>.apk</code>), and bundle id; use an APK that includes <strong>InAppTestRunner</strong>.</li>
 </ol>
+<p>Start with the <a href="manual/install-sdk.html">Manual</a>.</p>
 <h2 id="quick-example">Quick example</h2>
 <pre><code class="lang-csharp">[Test]
 public async Task Shop_opens_on_home()

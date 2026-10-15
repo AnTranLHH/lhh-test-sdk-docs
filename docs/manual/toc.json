@@ -1,2 +1,2 @@
 
-{"items":[{"name":"Getting started","href":"getting-started.html","topicHref":"getting-started.html"}]}
+{"items":[{"name":"Install the Test SDK","href":"install-sdk.html","topicHref":"install-sdk.html"},{"name":"Test Controller and settings","href":"test-controller-and-settings.html","topicHref":"test-controller-and-settings.html"},{"name":"Writing test cases","href":"writing-tests.html","topicHref":"writing-tests.html"},{"name":"Running tests","href":"running-tests.html","topicHref":"running-tests.html"}]}

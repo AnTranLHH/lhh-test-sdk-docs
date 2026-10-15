@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Install the Test SDK | LHH Test SDK </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Install the Test SDK | LHH Test SDK ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="LHH Test SDK">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="install-the-test-sdk">Install the Test SDK</h1>
+
+<p>This guide is for <strong>QA</strong> writing NUnit tests in the Unity Editor with <strong><code>LHH_TestSDK</code></strong>.</p>
+<p><strong>Platform support:</strong> <strong>Android only</strong> today. iOS options in Settings are reserved for a later release—do not rely on iOS until documented otherwise.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Unity <strong>2022.3</strong> or newer (2022.3.67f2+ recommended).</li>
+<li>A game project where the <strong>player build</strong> includes automation (see <a href="#player-build-inapptestrunner">Player build</a> below).</li>
+<li>Bitbucket SSH access to LiHuHu repos (for UPM git URLs).</li>
+</ul>
+<h2 id="1-add-the-test-sdk-package">1. Add the Test SDK package</h2>
+<p>In the game project, edit <code>Packages/manifest.json</code> and add:</p>
+<pre><code class="lang-json">&quot;com.lhh.testsdk&quot;: &quot;git@bitbucket.org:lihuhu/lhh-auto-test-sdk.git?path=Assets/TestSDK&quot;
+</code></pre>
+<p>Pin a release when dev specifies one, for example:</p>
+<pre><code class="lang-json">&quot;com.lhh.testsdk&quot;: &quot;git@bitbucket.org:lihuhu/lhh-auto-test-sdk.git?path=Assets/TestSDK#v0.1.0&quot;
+</code></pre>
+<p>Open the project in Unity and wait for Package Manager to resolve the package.</p>
+<h2 id="2-run-install-test-sdk-in-the-editor">2. Run <strong>Install Test SDK</strong> in the Editor</h2>
+<ol>
+<li>Open <strong>LHH Test SDK → Settings</strong>.</li>
+<li>Enable <strong>Show Advance Settings</strong>.</li>
+<li>Click <strong>Install Test SDK</strong> and wait until progress shows <strong>Test SDK install finished.</strong></li>
+</ol>
+<p>This step:</p>
+<ul>
+<li>Writes NuGet config under <code>Assets/</code> and restores client packages (MagicOnion, MemoryPack, gRPC, etc.).</li>
+<li>Merges required Unity Package Manager dependencies into <code>Packages/manifest.json</code>.</li>
+<li>Adds the <strong><code>LHH_AUTOMATION_TEST</code></strong> scripting define so <code>LHH_TestSDK</code> and player hub code compile.</li>
+</ul>
+<p>You only need to run <strong>Install Test SDK</strong> again after a SDK update (see <a href="#updating-after-a-release">Updating after a release</a>).</p>
+<h2 id="3-comlhhtestcontrollershared-required">3. <code>com.lhh.testcontroller.shared</code> (required)</h2>
+<p>The <strong>shared contracts</strong> package (<code>com.lhh.testcontroller.shared</code>) is <strong>not</strong> something QA normally adds by hand. <strong>Install Test SDK</strong> merges it into <code>manifest.json</code>, for example:</p>
+<pre><code class="lang-json">&quot;com.lhh.testcontroller.shared&quot;: &quot;git@bitbucket.org:lihuhu/lhh-auto-test-controller.git?path=src/Lhh.TestController.Shared&quot;
+</code></pre>
+<p>It contains MagicOnion service contracts and command DTOs used by:</p>
+<ul>
+<li>Your NUnit tests (<code>LHH_TestSDK</code> in the Editor),</li>
+<li>The <strong>InAppTestRunner</strong> code in the player build,</li>
+<li>The Test Controller process on your machine.</li>
+</ul>
+<p><strong>Editor, player, shared package, and running controller must all match</strong> the version dev released together. If they drift, you may see hub connection failures or RPC errors.</p>
+<h3 id="updating-after-a-release">Updating after a release</h3>
+<p>When dev ships a new Test SDK:</p>
+<ol>
+<li>Update <strong><code>com.lhh.testsdk</code></strong> in <code>manifest.json</code> (new tag or commit on <code>lhh-auto-test-sdk</code>).</li>
+<li>Open <strong>LHH Test SDK → Settings</strong> → <strong>Install Test SDK</strong> again so installer-owned dependencies stay in sync.</li>
+<li>Update <strong><code>com.lhh.testcontroller.shared</code></strong> in <code>manifest.json</code> if release notes pin a new controller tag/commit (for example <code>#v0.2.0</code>).</li>
+<li>Ask the game team for a <strong>new Android APK</strong> built with the updated automation bits; update <strong>App path</strong> in Settings before running tests.</li>
+</ol>
+<p>Confirm in <strong>Window → Package Manager</strong> that both <code>com.lhh.testsdk</code> and <code>com.lhh.testcontroller.shared</code> are present.</p>
+<h2 id="player-build-inapptestrunner">Player build (InAppTestRunner)</h2>
+<p>Tests drive a <strong>real Android build</strong> on a device. That APK must come from a project that:</p>
+<ul>
+<li>Includes the Test SDK package (which contains <strong>InAppTestRunner</strong>—hub + command executors for UI, scenes, PlayerPrefs, IAP, etc.).</li>
+<li>Has <strong><code>LHH_AUTOMATION_TEST</code></strong> enabled for the <strong>Android</strong> build target (same define <strong>Install Test SDK</strong> adds for the Editor; the game team must include it on the player platform).</li>
+</ul>
+<p>At runtime the player should connect to the Test Controller hub (look for logs such as <code>TestSDK: Create MagicOnionCommandHub Done</code> in logcat when debugging).</p>
+<p><strong>Bundle ID</strong> on the device build must match what you configure in Settings (Player Settings application identifier, or <strong>Bundle ID</strong> override).</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="test-controller-and-settings.html">Test Controller and settings</a>—install and start the controller, set gRPC, app path, and platform.</li>
+<li><a href="writing-tests.html">Writing test cases</a></li>
+<li><a href="running-tests.html">Running tests</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/install-sdk.md#lines-1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      LHH Test SDK
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

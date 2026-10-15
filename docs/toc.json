@@ -1,2 +1,2 @@
 
-{"items":[{"name":"Home","href":"index.html","topicHref":"index.html"},{"name":"Manual","href":"manual/getting-started.html","tocHref":"manual/toc.html","topicHref":"manual/getting-started.html"},{"name":"Scripting API","href":"api/Global.html","tocHref":"api/toc.html","topicHref":"api/Global.html","topicUid":"Global"}]}
+{"items":[{"name":"Home","href":"index.html","topicHref":"index.html"},{"name":"Manual","href":"manual/install-sdk.html","tocHref":"manual/toc.html","topicHref":"manual/install-sdk.html"},{"name":"Scripting API","href":"api/Global.html","tocHref":"api/toc.html","topicHref":"api/Global.html","topicUid":"Global"}]}

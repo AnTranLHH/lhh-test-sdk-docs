@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Test Controller and settings | LHH Test SDK </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Test Controller and settings | LHH Test SDK ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="LHH Test SDK">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="test-controller-and-settings">Test Controller and settings</h1>
+
+<p><strong>Android only</strong> for running tests today.</p>
+<h2 id="open-settings">Open Settings</h2>
+<p><strong>LHH Test SDK → Settings</strong></p>
+<p>Values are stored in <strong>EditorPrefs</strong> on your machine (not in git). Each QA machine keeps its own gRPC address, app path, and bundle id.</p>
+<h2 id="configuration-always-visible">Configuration (always visible)</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>gRPC server address</strong></td>
+<td>Test Controller URL. Default: <code>http://127.0.0.1:5050</code>.</td>
+</tr>
+<tr>
+<td><strong>Bundle ID</strong></td>
+<td>Optional override. If empty, the effective id is <strong>Player Settings → Application identifier</strong>. Must match the installed APK.</td>
+</tr>
+<tr>
+<td><strong>Platform</strong></td>
+<td>Use <strong>Android</strong> for now.</td>
+</tr>
+<tr>
+<td><strong>App path</strong></td>
+<td>Path to the automation-enabled <strong><code>.apk</code></strong>. Use <strong>Browse</strong> to pick the file dev or CI gave you.</td>
+</tr>
+</tbody>
+</table>
+<p>If <strong>App path</strong> is empty, setup may warn and the session cannot launch your build.</p>
+<h2 id="install-and-run-the-test-controller-recommended">Install and run the Test Controller (recommended)</h2>
+<p>Use the Settings window instead of manual shell scripts.</p>
+<ol>
+<li>Enable <strong>Show Advance Settings</strong>.</li>
+<li><strong>Install Test Controller</strong> — clones and prepares <code>~/lhh-auto-test-controller</code> (runs environment check/setup as needed). Wait until the button shows <strong>Test Controller Installed</strong>.</li>
+<li><strong>Run Test Server</strong> — starts Appium and the controller (default gRPC <strong>5050</strong>, Appium <strong>4723</strong>). Status should show <strong>Running</strong> before you run NUnit tests.</li>
+<li>When finished for the day, <strong>Stop Test Server</strong>.</li>
+</ol>
+<p>If install fails, read the <strong>Progress</strong> panel in Advance Settings. Missing JDK, Android SDK, or Appium usually requires a one-time machine setup—coordinate with dev/infra; QA’s normal path is still the <strong>Install Test Controller</strong> button.</p>
+<p>The running controller version should match the <strong><code>com.lhh.testcontroller.shared</code></strong> package version in your Unity project (see <a href="install-sdk.html#updating-after-a-release">Install the Test SDK</a>).</p>
+<h2 id="what-happens-when-a-test-starts">What happens when a test starts</h2>
+<p>The first <code>LHH_TestSDK</code> call in a Test Runner run (for example <code>WaitForObject</code>) automatically:</p>
+<ol>
+<li>Connects to the gRPC address in Settings.</li>
+<li>Requests a test device from the controller.</li>
+<li>Creates an Appium session and launches the <strong>App path</strong> APK when configured.</li>
+<li>Waits until the Unity player’s command hub is connected.</li>
+</ol>
+<p>You do not call setup APIs yourself in normal tests.</p>
+<p>When the Test Runner <strong>finishes the whole run</strong> (or reports a runner error), the SDK returns the device to the controller.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="writing-tests.html">Writing test cases</a></li>
+<li><a href="running-tests.html">Running tests</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/test-controller-and-settings.md#lines-1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      LHH Test SDK
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
