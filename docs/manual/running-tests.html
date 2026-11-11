@@ -84,31 +84,37 @@
 <ol>
 <li><strong>Test SDK</strong> installed in the project (<a href="install-sdk.html">Install the Test SDK</a>).</li>
 <li><strong><code>com.lhh.testcontroller.shared</code></strong> present and aligned with the SDK/controller version dev released.</li>
-<li><strong>Test Controller</strong> <strong>Running</strong> in <strong>LHH Test SDK → Settings</strong> → Advance Settings (<strong>Run Test Server</strong>).</li>
-<li><strong>Android device</strong> connected (USB debugging); controller can see it via Appium.</li>
+<li><strong>Install Test Controller</strong> done (Advance Settings) and <strong>Run Test Server</strong> active (<strong>Session &amp; server</strong> on the Settings window).</li>
+<li><strong>Android device</strong> connected (USB debugging); pick <strong>(Any claimable device)</strong> or a specific entry under <strong>Test device</strong> → <strong>Refresh device list</strong>.</li>
 <li><strong>Settings</strong> filled in:
 <ul>
 <li><strong>Platform:</strong> Android</li>
-<li><strong>App path:</strong> automation-enabled <strong>APK</strong> (contains InAppTestRunner + <code>LHH_AUTOMATION_TEST</code> on Android)</li>
+<li><strong>App path:</strong> <strong>required</strong> — automation-enabled <strong>APK</strong> path valid on the controller machine (InAppTestRunner + <code>LHH_AUTOMATION_TEST</code> on Android)</li>
 <li><strong>Bundle ID</strong> matches the APK (override or Player Settings)</li>
 <li><strong>gRPC server address:</strong> <code>http://127.0.0.1:5050</code> unless your machine uses another host/port</li>
 </ul>
 </li>
 <li>Player build is the version QA expects (rebuild and refresh <strong>App path</strong> after SDK/shared updates).</li>
 </ol>
+<p>Optional: <strong>Connect test device</strong> in <strong>Session &amp; server</strong> to complete setup before opening the Test Runner.</p>
+<h2 id="connect-test-device-optional-while-authoring">Connect test device (optional, while authoring)</h2>
+<p><strong>Connect test device</strong> runs the same pipeline as implicit test setup (lease → Appium → hub) <strong>without</strong> the Test Runner. Useful when writing tests so the first <code>LHH_TestSDK</code> call in a run is quick.</p>
+<p>After <strong>script recompile</strong>, use <strong>Re-sync test device</strong>. The controller may still hold your lease; the Editor reconnects and reuses an active Appium session when possible.</p>
+<p><strong>Release session now</strong> when you want the device back without stopping the whole test server.</p>
 <h2 id="run-from-test-runner">Run from Test Runner</h2>
 <ol>
 <li><strong>Window → General → Test Runner</strong></li>
 <li>Select <strong>EditMode</strong> (or <strong>PlayMode</strong> if your team uses it for specific tests).</li>
 <li>Run one test, a fixture, or all tests.</li>
 </ol>
-<p>On the <strong>first</strong> <code>LHH_TestSDK</code> call in that run, the SDK performs implicit setup (device lease, Appium session, hub wait). Setup can take tens of seconds—this is normal.</p>
-<p>When the <strong>entire run</strong> completes (pass or fail), the SDK returns the leased device automatically. You rarely need to call <code>CleanUpAfterTest</code> yourself.</p>
+<p>If setup already succeeded in this Unity domain (<strong>Connect test device</strong> or an earlier test), subsequent SDK calls skip setup until <strong>Release session now</strong>, domain reload, or <strong>CleanUpAfterTest</strong>.</p>
+<p>Otherwise the <strong>first</strong> SDK call in the run performs setup. Failures during lease or Appium create <strong>fail the test immediately</strong> (NUnit error)—fix Settings or controller state before retrying.</p>
+<p>When the <strong>entire run</strong> completes (pass or fail), the device is returned automatically only if <strong>Release session after test run</strong> is checked in Settings. If that option is off, the lease stays until you use <strong>Release session now</strong> or turn the option back on for the next run.</p>
 <h2 id="what-good-looks-like">What “good” looks like</h2>
 <ul>
-<li>Unity Console: setup logs, then your test logs/assertions.</li>
-<li>Device: app launches (if <strong>App path</strong> set), UI responds to clicks driven from the Editor.</li>
-<li>No <code>InvalidOperationException</code> for hub not connected or device assignment failed.</li>
+<li>Unity Console: <code>Test SDK: Test device session is ready.</code> (or prior connect), then test logs/assertions.</li>
+<li>Device: APK launches on first session create; UI responds to Editor-driven commands.</li>
+<li>Settings shows <strong>Editor session — Ready for SDK calls in this domain</strong> after <strong>Connect test device</strong> succeeds.</li>
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <table>
@@ -120,36 +126,44 @@
 </thead>
 <tbody>
 <tr>
-<td>Command hub is not connected</td>
-<td>APK built <strong>without</strong> InAppTestRunner / automation define; wrong bundle id; controller not running; firewall blocking gRPC.</td>
+<td><code>Test SDK App path is empty…</code></td>
+<td>Set <strong>App path</strong> before running tests or <strong>Connect test device</strong>. Path must exist on the machine running the Test Controller.</td>
 </tr>
 <tr>
-<td>Test device assignment failed</td>
-<td>Another test holding the device; controller not running; no free Android device.</td>
+<td><code>Test device assignment failed</code> / lease message from controller</td>
+<td>No claimable device; wrong <strong>Selected device</strong>; another session holding the pool; controller not running. <strong>Refresh device list</strong>.</td>
+</tr>
+<tr>
+<td><code>Appium session was not created</code> / message from controller</td>
+<td>Bad APK path, install failure, Appium/device error—read the exception text and controller logs.</td>
+</tr>
+<tr>
+<td>Appium session already active; skipping create</td>
+<td>Stale session on device. <strong>Release session now</strong>, <strong>Stop Test Server</strong>, or reinstall launch; then <strong>Connect test device</strong> again.</td>
+</tr>
+<tr>
+<td>Command hub is not connected</td>
+<td>APK without InAppTestRunner / automation define; wrong bundle id; app crashed; firewall blocking gRPC.</td>
 </tr>
 <tr>
 <td>Timed out waiting for object/scene</td>
-<td>Wrong path (use <strong>Extract Object Path</strong>); object not loaded yet—increase timeout; game not on expected scene.</td>
+<td>Wrong path (<strong>Extract Object Path</strong>); increase timeout; game not on expected scene.</td>
 </tr>
 <tr>
 <td>Failed to click button</td>
-<td>Path not a <strong>Button</strong>; object inactive; use <code>WaitForObject</code> path first.</td>
+<td>Path not a <strong>Button</strong>; object inactive.</td>
 </tr>
 <tr>
 <td>Purchase failures</td>
-<td>Use <code>PurchaseByButton</code> / <code>Purchase</code>; store/account sandbox; allow up to <strong>3 minutes</strong> for <code>Purchase</code>.</td>
-</tr>
-<tr>
-<td>Empty app path warning</td>
-<td>Set <strong>App path</strong> in Settings; session may not launch the build you intend.</td>
+<td><code>PurchaseByButton</code> / <code>Purchase</code>; sandbox account; up to <strong>3 minutes</strong> for <code>Purchase</code>.</td>
 </tr>
 <tr>
 <td>RPC / type errors after upgrade</td>
-<td>Update <strong><code>com.lhh.testsdk</code></strong> and <strong><code>com.lhh.testcontroller.shared</code></strong>, re-run <strong>Install Test SDK</strong>, restart <strong>Test Server</strong>, use a new APK.</td>
+<td>Update <strong><code>com.lhh.testsdk</code></strong> and <strong><code>com.lhh.testcontroller.shared</code></strong>, re-run <strong>Install Test SDK</strong>, restart server, new APK.</td>
 </tr>
 </tbody>
 </table>
-<p>For controller-side logs, see the Progress panel in Settings or logs under <code>~/lhh-auto-test-controller/.run/</code> when using the installed controller repo.</p>
+<p>For controller-side logs, use <strong>Progress</strong> (Advance Settings) or <code>~/lhh-auto-test-controller/.run/</code> when using the installed controller repo.</p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="../api/Global.LHH_TestSDK.html">Scripting API — LHH_TestSDK</a> — full method list and parameters.</li>
@@ -163,7 +177,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/running-tests.md#lines-1" class="contribution-link">Edit this page</a>
+                    <a href="https://ssh.bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/running-tests.md#lines-1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

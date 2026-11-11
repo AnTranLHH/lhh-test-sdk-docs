@@ -99,13 +99,21 @@ public async Task Example_flow()
 <ol>
 <li><strong>Wait for state</strong> — <code>WaitForScene</code>, <code>WaitForObject</code> (poll every 2 seconds until timeout).</li>
 <li><strong>Act</strong> — <code>ClickButton</code> for normal UI; IAP shop buy flows use <code>PurchaseByButton</code> or <code>Purchase</code>.</li>
-<li><strong>Assert</strong> — NUnit <code>Assert.*</code> on values from <code>GetGameData</code>, <code>GetText</code>, or your own helpers.</li>
+<li><strong>Assert</strong> — NUnit <code>Assert.*</code> on values from <code>GetGameData</code>, <code>GetText</code>, or your own helpers. Seed or clear PlayerPrefs with <code>SetGameData</code>, <code>DeleteGameData</code>, and <code>DeleteAllGameData</code> when the test needs a known value.</li>
 </ol>
-<p>Example reading PlayerPrefs on the device:</p>
-<pre><code class="lang-csharp">string raw = await LHH_TestSDK.GetGameData(&quot;coin&quot;);
+<p>Example reading and writing PlayerPrefs on the device:</p>
+<pre><code class="lang-csharp">await LHH_TestSDK.SetGameData(&quot;coin&quot;, 1000);
+await LHH_TestSDK.SetGameData(&quot;multiplier&quot;, 1.5f);
+await LHH_TestSDK.SetGameData(&quot;playerName&quot;, &quot;qa&quot;);
+
+string raw = await LHH_TestSDK.GetGameData(&quot;coin&quot;);
 Assert.IsTrue(int.TryParse(raw, out int coins));
 Assert.GreaterOrEqual(coins, 1000);
+
+await LHH_TestSDK.DeleteGameData(&quot;playerName&quot;);
+await LHH_TestSDK.DeleteAllGameData();
 </code></pre>
+<p><code>SetGameData</code>, <code>DeleteGameData</code>, and <code>DeleteAllGameData</code> write PlayerPrefs in the player and the player calls <code>PlayerPrefs.Save</code>. The player build must define <strong>DEVELOPMENT_MODE</strong> as well as <code>LHH_AUTOMATION_TEST</code>. If <code>DEVELOPMENT_MODE</code> is missing, the call fails with a message that contains <code>requires DEVELOPMENT_MODE</code>. <code>DeleteAllGameData</code> removes every PlayerPrefs key on the device.</p>
 <h2 id="hierarchy-paths-buttons-and-objects">Hierarchy paths (buttons and objects)</h2>
 <p>Paths use <strong><code>/</code></strong> between hierarchy segments, same rules for <code>WaitForObject</code>, <code>ClickButton</code>, and <code>GetText</code>:</p>
 <ul>
@@ -147,6 +155,19 @@ Assert.GreaterOrEqual(coins, 1000);
 <pre><code class="lang-csharp">LHH_TestSDK.LogWithColor(&quot;checkpoint A&quot;, Color.cyan);
 LHH_TestSDK.LogError(&quot;coins before assert: &quot; + coins);
 </code></pre>
+<h2 id="screenshots">Screenshots</h2>
+<p><code>TakeScreenshot</code> captures the device screen through the Test Controller and writes a PNG on the Editor machine:</p>
+<pre><code class="lang-csharp">string path = await LHH_TestSDK.TakeScreenshot(&quot;home&quot;);
+</code></pre>
+<p>The file is <code>{name}.png</code>. When <code>outputDir</code> is omitted, the folder is <code>Application.persistentDataPath/Screenshots</code>. The directory is created if needed, and the call returns the full path.</p>
+<h2 id="device-gestures">Device gestures</h2>
+<p><code>TapAt</code>, <code>TapAtNormalized</code>, and <code>Swipe</code> drive the leased device through Appium. Coordinates are the Appium window in pixels, origin at the top-left, not Unity hierarchy positions.</p>
+<pre><code class="lang-csharp">await LHH_TestSDK.TapAt(540, 960);
+await LHH_TestSDK.TapAtNormalized(0.5f, 0.5f);
+await LHH_TestSDK.Swipe(540, 1600, 540, 400);
+await LHH_TestSDK.Swipe(540, 1600, 540, 400, durationMs: 500);
+</code></pre>
+<p><code>TapAtNormalized</code> reads the device window size from Appium, then taps that fraction of the window (<code>0</code> is the top-left edge, <code>1</code> is the last pixel on that axis). <code>Swipe</code> moves from one pixel to another; <code>durationMs</code> defaults to <strong>300</strong>.</p>
 <h2 id="timeouts">Timeouts</h2>
 <p><code>WaitForScene</code>, <code>WaitForObject</code>, <code>ClickButton</code>, and <code>GetText</code> accept optional <strong><code>timeoutSeconds</code></strong> (default <strong>30</strong>). Increase for slow loads or heavy scenes.</p>
 <h2 id="next-step">Next step</h2>
@@ -160,7 +181,7 @@ LHH_TestSDK.LogError(&quot;coins before assert: &quot; + coins);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/writing-tests.md#lines-1" class="contribution-link">Edit this page</a>
+                    <a href="https://ssh.bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/writing-tests.md#lines-1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

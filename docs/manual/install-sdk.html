@@ -120,7 +120,8 @@
 </ul>
 <p><strong>Editor, player, shared package, and running controller must all match</strong> the version dev released together. If they drift, you may see hub connection failures or RPC errors.</p>
 <h3 id="updating-after-a-release">Updating after a release</h3>
-<p>When dev ships a new Test SDK:</p>
+<p><strong>LHH Test SDK → Settings → Check for update</strong> compares <code>com.lhh.testsdk</code>, <code>com.lhh.testcontroller.shared</code>, and the Test Controller repo (<code>~/lhh-auto-test-controller</code>) with their git remotes. When something is behind, <strong>Update</strong> fast-forwards the repo checkouts and refreshes git packages. Stop the test server first.</p>
+<p>To update those git URLs by hand:</p>
 <ol>
 <li>Update <strong><code>com.lhh.testsdk</code></strong> in <code>manifest.json</code> (new tag or commit on <code>lhh-auto-test-sdk</code>).</li>
 <li>Open <strong>LHH Test SDK → Settings</strong> → <strong>Install Test SDK</strong> again so installer-owned dependencies stay in sync.</li>
@@ -151,7 +152,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/install-sdk.md#lines-1" class="contribution-link">Edit this page</a>
+                    <a href="https://ssh.bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/install-sdk.md#lines-1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

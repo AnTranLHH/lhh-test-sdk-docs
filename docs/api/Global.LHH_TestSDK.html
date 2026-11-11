@@ -114,8 +114,9 @@ Requires LHH_AUTOMATION_TEST and a running Test Controller. Editor-only; not in 
     <pre><code class="lang-csharp hljs">public static void CleanUpAfterTest()</code></pre>
   </div>
   <h5 id="Global_LHH_TestSDK_CleanUpAfterTest_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Called automatically when the Unity Test Runner finishes a run or reports a runner error.
-Manual calls are rarely needed; use only if you run tests outside the Test Runner or need early teardown.</p>
+  <div class="markdown level1 remarks"><p>The Test Runner invokes this when a run finishes or errors only if
+<span class="xref">LHH_TestSDKSettings.ReleaseSessionAfterTestRun</span> is enabled (default on).
+Use <strong>Release session now</strong> in Settings or call this manually for early teardown.</p>
 </div>
 
 
@@ -191,6 +192,315 @@ Manual calls are rarely needed; use only if you run tests outside the Test Runne
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeoutexception">TimeoutException</a></td>
         <td><p>Object not found before <code class="paramref">timeoutSeconds</code> elapses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_ConnectTestDeviceAsync_" data-uid="Global.LHH_TestSDK.ConnectTestDeviceAsync*"></a>
+  <h4 id="Global_LHH_TestSDK_ConnectTestDeviceAsync" data-uid="Global.LHH_TestSDK.ConnectTestDeviceAsync">ConnectTestDeviceAsync()</h4>
+  <div class="markdown level1 summary"><p>Leases a device, starts or reuses an Appium session, and waits for the in-app command hub—without running tests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task ConnectTestDeviceAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_ConnectTestDeviceAsync_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use from the Test SDK settings window while authoring tests so the first SDK call in a test does not pay full setup cost.
+After a script change, Unity reloads the domain and clears local SDK state; the controller may still hold the lease and device app.
+Call this again (or rely on implicit setup on the next SDK call) to re-open the gRPC client and re-sync; existing lease/Appium/hub are reused when possible.</p>
+</div>
+
+
+  <a id="Global_LHH_TestSDK_ContainsLog_" data-uid="Global.LHH_TestSDK.ContainsLog*"></a>
+  <h4 id="Global_LHH_TestSDK_ContainsLog_System_String_System_Int32_System_Boolean_System_Boolean_" data-uid="Global.LHH_TestSDK.ContainsLog(System.String,System.Int32,System.Boolean,System.Boolean)">ContainsLog(string, int, bool, bool)</h4>
+  <div class="markdown level1 summary"><p>Returns whether recent Android logcat output from the leased device contains the given text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; ContainsLog(string log, int maxLine = 1000, bool clearAfter = false, bool caseSensitive = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">log</span></td>
+        <td><p>Substring to search for in the captured log text.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">maxLine</span></td>
+        <td><p>Maximum number of log lines to request from the device (last N in the buffer after filtering).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clearAfter</span></td>
+        <td><p>When true, the Test Controller clears the device log buffer after a successful capture.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">caseSensitive</span></td>
+        <td><p>When false, the search uses invariant-culture lowercasing on <code class="paramref">log</code> only.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><p>True if the captured log contains <code class="paramref">log</code>; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_ContainsLog_System_String_System_Int32_System_Boolean_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Uses <a class="xref" href="Global.LHH_TestSDK.html#LHH_TestSDK_GetDeviceLogs_System_Int32_System_Boolean_">GetDeviceLogs(int, bool)</a> (Unity tag at Info and above, other tags silenced). On a match, the first
+matching line is printed to the Unity Console in green. Does not fail the test; combine with NUnit Assert as needed.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_ContainsLog_System_String_System_Int32_System_Boolean_System_Boolean__examples">Examples</h5>
+  <pre><code class="lang-csharp">bool seen = await LHH_TestSDK.ContainsLog("Shop opened", maxLine: 500);
+Assert.IsTrue(seen);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Log capture failed on the Test Controller.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_DeleteAllGameData_" data-uid="Global.LHH_TestSDK.DeleteAllGameData*"></a>
+  <h4 id="Global_LHH_TestSDK_DeleteAllGameData" data-uid="Global.LHH_TestSDK.DeleteAllGameData">DeleteAllGameData()</h4>
+  <div class="markdown level1 summary"><p>Deletes every PlayerPrefs entry on the game player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task DeleteAllGameData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_DeleteAllGameData_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Clears all keys, then the player saves.
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_DeleteAllGameData_examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.DeleteAllGameData();</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, or the player rejected the delete.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_DeleteGameData_" data-uid="Global.LHH_TestSDK.DeleteGameData*"></a>
+  <h4 id="Global_LHH_TestSDK_DeleteGameData_System_String_" data-uid="Global.LHH_TestSDK.DeleteGameData(System.String)">DeleteGameData(string)</h4>
+  <div class="markdown level1 summary"><p>Deletes one PlayerPrefs key on the game player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task DeleteGameData(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>PlayerPrefs key to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_DeleteGameData_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. The player saves after the delete.
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_DeleteGameData_System_String__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.DeleteGameData("playerName");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, or the player rejected the delete.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_GetDeviceLogs_" data-uid="Global.LHH_TestSDK.GetDeviceLogs*"></a>
+  <h4 id="Global_LHH_TestSDK_GetDeviceLogs_System_Int32_System_Boolean_" data-uid="Global.LHH_TestSDK.GetDeviceLogs(System.Int32,System.Boolean)">GetDeviceLogs(int, bool)</h4>
+  <div class="markdown level1 summary"><p>Dumps recent Android logcat from the device bound to the current test lease via the Test Controller (ADB).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetDeviceLogs(int maxLine = 1000, bool clearAfter = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">maxLine</span></td>
+        <td><p>Maximum number of log lines to return (last N in the buffer after filtering).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clearAfter</span></td>
+        <td><p>When true, the device log buffer is cleared after a successful dump so the next call sees mostly new logs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><p>Raw logcat text: one line per entry, separated by newline characters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_GetDeviceLogs_System_Int32_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Filter is fixed to <code>Unity:I *:S</code> (Unity Info/Warn/Error/Fatal; other tags hidden). Android only.
+For editor-only messages that do not touch the device, use <span class="xref">LHH_TestSDK.LogWithColor(System.String,UnityEngine.Color)</span> or <a class="xref" href="Global.LHH_TestSDK.html#LHH_TestSDK_LogError_System_String_">LogError(string)</a>.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_GetDeviceLogs_System_Int32_System_Boolean__examples">Examples</h5>
+  <pre><code class="lang-csharp">string log = await LHH_TestSDK.GetDeviceLogs(maxLine: 1000, clearAfter: true);
+StringAssert.Contains("IAP initialized", log);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>No leased device, channel error, or log capture failed.</p>
 </td>
       </tr>
     </tbody>
@@ -556,6 +866,686 @@ Assert.IsTrue(ok);</code></pre>
   </table>
 
 
+  <a id="Global_LHH_TestSDK_SetGameData_" data-uid="Global.LHH_TestSDK.SetGameData*"></a>
+  <h4 id="Global_LHH_TestSDK_SetGameData_System_String_System_Int32_" data-uid="Global.LHH_TestSDK.SetGameData(System.String,System.Int32)">SetGameData(string, int)</h4>
+  <div class="markdown level1 summary"><p>Writes an int PlayerPrefs value on the game player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task SetGameData(string key, int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>PlayerPrefs key, e.g. coin or heart.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Int value stored with PlayerPrefs.SetInt.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_SetGameData_System_String_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. The player saves after the write.
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_SetGameData_System_String_System_Int32__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.SetGameData("coin", 1000);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, or the player rejected the write.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_SetGameData_" data-uid="Global.LHH_TestSDK.SetGameData*"></a>
+  <h4 id="Global_LHH_TestSDK_SetGameData_System_String_System_Single_" data-uid="Global.LHH_TestSDK.SetGameData(System.String,System.Single)">SetGameData(string, float)</h4>
+  <div class="markdown level1 summary"><p>Writes a float PlayerPrefs value on the game player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task SetGameData(string key, float value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>PlayerPrefs key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Float value stored with PlayerPrefs.SetFloat.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_SetGameData_System_String_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. The player saves after the write.
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_SetGameData_System_String_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.SetGameData("multiplier", 1.5f);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, or the player rejected the write.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_SetGameData_" data-uid="Global.LHH_TestSDK.SetGameData*"></a>
+  <h4 id="Global_LHH_TestSDK_SetGameData_System_String_System_String_" data-uid="Global.LHH_TestSDK.SetGameData(System.String,System.String)">SetGameData(string, string)</h4>
+  <div class="markdown level1 summary"><p>Writes a string PlayerPrefs value on the game player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task SetGameData(string key, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>PlayerPrefs key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>String value stored with PlayerPrefs.SetString.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_SetGameData_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. The player saves after the write.
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_SetGameData_System_String_System_String__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.SetGameData("playerName", "qa");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, or the player rejected the write.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_Swipe_" data-uid="Global.LHH_TestSDK.Swipe*"></a>
+  <h4 id="Global_LHH_TestSDK_Swipe_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Global.LHH_TestSDK.Swipe(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">Swipe(int, int, int, int, int)</h4>
+  <div class="markdown level1 summary"><p>Swipes from one pixel to another on the device screen through Appium.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task Swipe(int fromX, int fromY, int toX, int toY, int durationMs = 300)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromX</span></td>
+        <td><p>Start horizontal pixel.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromY</span></td>
+        <td><p>Start vertical pixel.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">toX</span></td>
+        <td><p>End horizontal pixel.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">toY</span></td>
+        <td><p>End vertical pixel.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">durationMs</span></td>
+        <td><p>Move duration in milliseconds. Default is 300.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_Swipe_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Coordinates are Appium window pixels, origin at the top-left.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_Swipe_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.Swipe(540, 1600, 540, 400);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed or the swipe was rejected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_TakeScreenshot_" data-uid="Global.LHH_TestSDK.TakeScreenshot*"></a>
+  <h4 id="Global_LHH_TestSDK_TakeScreenshot_System_String_System_String_" data-uid="Global.LHH_TestSDK.TakeScreenshot(System.String,System.String)">TakeScreenshot(string, string)</h4>
+  <div class="markdown level1 summary"><p>Captures the device screen and writes a PNG on the machine running the Editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; TakeScreenshot(string name, string outputDir = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>File name without extension. Saved as <code>{name}.png</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">outputDir</span></td>
+        <td><p>Directory for the PNG. When null, uses <code>Application.persistentDataPath/Screenshots</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><p>Full path of the written PNG file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_TakeScreenshot_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Asks the Test Controller native UI service for a base64 screenshot of the leased device, then decodes and writes the PNG. Creates <code class="paramref">outputDir</code> when it does not exist.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_TakeScreenshot_System_String_System_String__examples">Examples</h5>
+  <pre><code class="lang-csharp">string path = await LHH_TestSDK.TakeScreenshot("home");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p><code class="paramref">name</code> is null or whitespace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, capture failed, or image data was empty or not valid base64.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_TapAt_" data-uid="Global.LHH_TestSDK.TapAt*"></a>
+  <h4 id="Global_LHH_TestSDK_TapAt_System_Int32_System_Int32_" data-uid="Global.LHH_TestSDK.TapAt(System.Int32,System.Int32)">TapAt(int, int)</h4>
+  <div class="markdown level1 summary"><p>Taps a pixel on the device screen through Appium.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TapAt(int x, int y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>Horizontal pixel in the Appium window, origin at the top-left.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Vertical pixel in the Appium window, origin at the top-left.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_TapAt_System_Int32_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Coordinates are the Appium window in pixels, not Unity UI positions.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_TapAt_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.TapAt(540, 960);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed or the tap was rejected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_TapAtNormalized_" data-uid="Global.LHH_TestSDK.TapAtNormalized*"></a>
+  <h4 id="Global_LHH_TestSDK_TapAtNormalized_System_Single_System_Single_" data-uid="Global.LHH_TestSDK.TapAtNormalized(System.Single,System.Single)">TapAtNormalized(float, float)</h4>
+  <div class="markdown level1 summary"><p>Taps a point given as fractions of the device window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TapAtNormalized(float x, float y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>Horizontal fraction of the Appium window width (0 left, 1 right).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Vertical fraction of the Appium window height (0 top, 1 bottom).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_TapAtNormalized_System_Single_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Reads the device window size from Appium, then taps that point.
+0 is the top-left edge and 1 is the last pixel on that axis.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_TapAtNormalized_System_Single_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.TapAtNormalized(0.5f, 0.5f);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, window size could not be read, or the tap was rejected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_TapObject_" data-uid="Global.LHH_TestSDK.TapObject*"></a>
+  <h4 id="Global_LHH_TestSDK_TapObject_System_String_System_Single_" data-uid="Global.LHH_TestSDK.TapObject(System.String,System.Single)">TapObject(string, float)</h4>
+  <div class="markdown level1 summary"><p>Waits for an object, reads its Unity screen position, and taps that point through Appium.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TapObject(string objectPath, float timeoutSeconds = 30)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">objectPath</span></td>
+        <td><p>Hierarchy path with / separators (same rules as WaitForObject).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">timeoutSeconds</span></td>
+        <td><p>Maximum seconds to wait for the object before failing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_TapObject_System_String_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Polls every 2 seconds.
+The player returns Camera.main.WorldToScreenPoint of the renderer bounds center, then collider bounds, then transform.position.
+A RectTransform uses the screen point of its rect center. The result also includes Screen.width and Screen.height.
+Unity screen coordinates (origin bottom-left) are flipped on Y and scaled to the Appium window, then tapped.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_TapObject_System_String_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.TapObject("HUD/PlayButton");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, the screen position could not be read, or the tap was rejected.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeoutexception">TimeoutException</a></td>
+        <td><p>Object not found before <code class="paramref">timeoutSeconds</code> elapses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_TapObjectDirect_" data-uid="Global.LHH_TestSDK.TapObjectDirect*"></a>
+  <h4 id="Global_LHH_TestSDK_TapObjectDirect_System_String_" data-uid="Global.LHH_TestSDK.TapObjectDirect(System.String)">TapObjectDirect(string)</h4>
+  <div class="markdown level1 summary"><p>Taps an object inside the game player by raising a pointer click or mouse-up message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TapObjectDirect(string objectPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">objectPath</span></td>
+        <td><p>Hierarchy path with / separators (same rules as WaitForObject).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_TapObjectDirect_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use.
+The player runs ExecuteEvents.pointerClickHandler when an IPointerClickHandler is found, otherwise SendMessage(&quot;OnMouseUpAsButton&quot;).
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_TapObjectDirect_System_String__examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.TapObjectDirect("World/Coin");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, the object was not found, or the player rejected the tap.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="Global_LHH_TestSDK_WaitForObject_" data-uid="Global.LHH_TestSDK.WaitForObject*"></a>
   <h4 id="Global_LHH_TestSDK_WaitForObject_System_String_System_Single_" data-uid="Global.LHH_TestSDK.WaitForObject(System.String,System.Single)">WaitForObject(string, float)</h4>
   <div class="markdown level1 summary"><p>Blocks until a GameObject exists in the game player hierarchy at the given path.</p>
@@ -698,7 +1688,7 @@ Assert.IsTrue(ok);</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Implicit setup failed.</p>
+        <td><p>Implicit setup failed, or the game player returned a non-transient error for get-active-scenes ('No Unity app connected' and 'did not respond in time' are retried).</p>
 </td>
       </tr>
       <tr>

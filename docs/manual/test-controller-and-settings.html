@@ -82,7 +82,7 @@
 <p><strong>Android only</strong> for running tests today.</p>
 <h2 id="open-settings">Open Settings</h2>
 <p><strong>LHH Test SDK → Settings</strong></p>
-<p>Values are stored in <strong>EditorPrefs</strong> on your machine (not in git). Each QA machine keeps its own gRPC address, app path, and bundle id.</p>
+<p>Values are stored in <strong>EditorPrefs</strong> on your machine (not in git). Each QA machine keeps its own gRPC address, app path, bundle id, and device preference.</p>
 <h2 id="configuration-always-visible">Configuration (always visible)</h2>
 <table>
 <thead>
@@ -106,31 +106,122 @@
 </tr>
 <tr>
 <td><strong>App path</strong></td>
-<td>Path to the automation-enabled <strong><code>.apk</code></strong>. Use <strong>Browse</strong> to pick the file dev or CI gave you.</td>
+<td><strong>Required</strong> for setup. Full path to the automation-enabled <strong><code>.apk</code></strong> as the Test Controller host can read it (use <strong>Browse</strong>). If empty, the first setup call <strong>fails the test</strong> with an error—there is no silent continue.</td>
+</tr>
+<tr>
+<td><strong>Release session after test run</strong></td>
+<td>When enabled (default), the Test Runner returns the leased device when a full run finishes or the runner errors. Turn off to keep the lease between runs (see <strong>Release session now</strong> to return the device manually).</td>
 </tr>
 </tbody>
 </table>
-<p>If <strong>App path</strong> is empty, setup may warn and the session cannot launch your build.</p>
-<h2 id="install-and-run-the-test-controller-recommended">Install and run the Test Controller (recommended)</h2>
-<p>Use the Settings window instead of manual shell scripts.</p>
+<h2 id="test-device-device-pool">Test device (device pool)</h2>
+<p>Shown under <strong>Configuration</strong> when the test server is ready.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Selected device</strong></td>
+<td><strong>(Any claimable device)</strong> or a specific device from the controller pool. This is a <strong>preference</strong> only—the lease happens on <strong>Connect test device</strong> or on the first <code>LHH_TestSDK</code> call in a test.</td>
+</tr>
+<tr>
+<td><strong>Refresh device list</strong></td>
+<td>Reloads claimable devices from the controller (devices already leased are omitted).</td>
+</tr>
+</tbody>
+</table>
+<p>Requires <strong>Test Controller installed</strong> and <strong>Run Test Server</strong> active. If the server is not running, the list is disabled and a warning explains why.</p>
+<p>Changing <strong>Platform</strong> while the server is running refreshes the device list automatically.</p>
+<h2 id="session--server">Session &amp; server</h2>
+<p>Visible on the main Settings page (not hidden under Advance Settings).</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Connect test device</strong> / <strong>Re-sync test device</strong></td>
+<td>Runs setup without the Test Runner: lease device (using <strong>Selected device</strong> if set), Appium session, hub wait. Label switches to <strong>Re-sync</strong> when the Editor domain already completed setup. Use while authoring tests so the first API call in a test is faster.</td>
+</tr>
+<tr>
+<td><strong>Release session now</strong></td>
+<td>Returns the leased device to the pool and clears Editor setup state immediately.</td>
+</tr>
+<tr>
+<td><strong>Run Test Server</strong> / <strong>Stop Test Server</strong></td>
+<td>Starts or stops Appium and the controller (gRPC <strong>5050</strong>, Appium <strong>4723</strong>). Shown after <strong>Install Test Controller</strong> succeeds.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Domain reload:</strong> After you change scripts, Unity clears local SDK state. The controller may still hold the lease and an Appium session. Use <strong>Re-sync test device</strong> before the next test, or let implicit setup run on the first SDK call. If Appium reports a session already active but the wrong app is on the device, <strong>Stop Test Server</strong> or <strong>Release session now</strong>, then connect again.</p>
+<h2 id="updates">Updates</h2>
+<p><strong>Check for update</strong> compares three git sources with their remotes:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>What is compared</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>com.lhh.testsdk</strong></td>
+<td>Installed package revision, or this repo when the project is the Test SDK checkout</td>
+</tr>
+<tr>
+<td><strong>com.lhh.testcontroller.shared</strong></td>
+<td>Installed package revision in <code>packages-lock.json</code></td>
+</tr>
+<tr>
+<td><strong>Test Controller repo</strong></td>
+<td><code>~/lhh-auto-test-controller</code> against <code>origin</code> of the current branch</td>
+</tr>
+</tbody>
+</table>
+<p>If any source is behind, <strong>Update</strong> appears. Otherwise the window reports that you are up to date. Stop the test server before updating the shared package or the Test Controller repo. After a Test SDK package update, run <strong>Install Test SDK</strong> again if installer-owned dependencies changed, and install a new player build before testing.</p>
+<h2 id="install-test-controller-and-test-sdk-advance-settings">Install Test Controller and Test SDK (Advance Settings)</h2>
+<p>Enable <strong>Show Advance Settings</strong> at the bottom of the window:</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Install Test SDK</strong></td>
+<td>NuGet/UPM merge and <code>LHH_AUTOMATION_TEST</code> (see <a href="install-sdk.html">Install the Test SDK</a>).</td>
+</tr>
+<tr>
+<td><strong>Install Test Controller</strong></td>
+<td>Clones and prepares <code>~/lhh-auto-test-controller</code> (environment check/setup).</td>
+</tr>
+<tr>
+<td><strong>Progress</strong></td>
+<td>Log output for install/setup.</td>
+</tr>
+</tbody>
+</table>
+<p>Typical order: <strong>Install Test SDK</strong> → <strong>Install Test Controller</strong> → <strong>Run Test Server</strong> (in <strong>Session &amp; server</strong>) → set <strong>App path</strong> and device → <strong>Connect test device</strong> (optional) → run tests.</p>
+<p>If controller install fails, read <strong>Progress</strong>. Missing JDK, Android SDK, or Appium usually needs a one-time machine setup—coordinate with dev/infra.</p>
+<p>The running controller version should match <strong><code>com.lhh.testcontroller.shared</code></strong> in your Unity project (see <a href="install-sdk.html#updating-after-a-release">Install the Test SDK</a>).</p>
+<h2 id="what-happens-during-setup">What happens during setup</h2>
+<p>Whether you use <strong>Connect test device</strong> or the first <code>LHH_TestSDK</code> call in a test, setup:</p>
 <ol>
-<li>Enable <strong>Show Advance Settings</strong>.</li>
-<li><strong>Install Test Controller</strong> — clones and prepares <code>~/lhh-auto-test-controller</code> (runs environment check/setup as needed). Wait until the button shows <strong>Test Controller Installed</strong>.</li>
-<li><strong>Run Test Server</strong> — starts Appium and the controller (default gRPC <strong>5050</strong>, Appium <strong>4723</strong>). Status should show <strong>Running</strong> before you run NUnit tests.</li>
-<li>When finished for the day, <strong>Stop Test Server</strong>.</li>
+<li>Opens a gRPC client to <strong>gRPC server address</strong>.</li>
+<li><strong>Requests a device lease</strong> from the controller (with optional <strong>Selected device</strong> id). If leasing fails, the test <strong>stops immediately</strong> with the controller’s message (for example no free device).</li>
+<li><strong>Appium session</strong> — if none is active for your bundle id, creates one using <strong>App path</strong> (must be set) and launches the APK. If a session is already active, creation is skipped (see warning in Console if the device state is wrong).</li>
+<li><strong>Waits</strong> until the Unity player command hub connects.</li>
 </ol>
-<p>If install fails, read the <strong>Progress</strong> panel in Advance Settings. Missing JDK, Android SDK, or Appium usually requires a one-time machine setup—coordinate with dev/infra; QA’s normal path is still the <strong>Install Test Controller</strong> button.</p>
-<p>The running controller version should match the <strong><code>com.lhh.testcontroller.shared</code></strong> package version in your Unity project (see <a href="install-sdk.html#updating-after-a-release">Install the Test SDK</a>).</p>
-<h2 id="what-happens-when-a-test-starts">What happens when a test starts</h2>
-<p>The first <code>LHH_TestSDK</code> call in a Test Runner run (for example <code>WaitForObject</code>) automatically:</p>
-<ol>
-<li>Connects to the gRPC address in Settings.</li>
-<li>Requests a test device from the controller.</li>
-<li>Creates an Appium session and launches the <strong>App path</strong> APK when configured.</li>
-<li>Waits until the Unity player’s command hub is connected.</li>
-</ol>
-<p>You do not call setup APIs yourself in normal tests.</p>
-<p>When the Test Runner <strong>finishes the whole run</strong> (or reports a runner error), the SDK returns the device to the controller.</p>
+<p>When the Test Runner <strong>finishes the whole run</strong> (or reports a runner error), the SDK calls <strong>Release session</strong> logic only if <strong>Release session after test run</strong> is enabled.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li><a href="writing-tests.html">Writing test cases</a></li>
@@ -145,7 +236,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/test-controller-and-settings.md#lines-1" class="contribution-link">Edit this page</a>
+                    <a href="https://ssh.bitbucket.org/lihuhu/lhh-auto-test-sdk/src/master/Documentation/manual/test-controller-and-settings.md#lines-1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

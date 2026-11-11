@@ -37,6 +37,75 @@ references:
   commentId: Overload:Global.LHH_TestSDK.ClickButton
   fullName: LHH_TestSDK.ClickButton
   nameWithType: LHH_TestSDK.ClickButton
+- uid: Global.LHH_TestSDK.ConnectTestDeviceAsync
+  name: ConnectTestDeviceAsync()
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ConnectTestDeviceAsync
+  commentId: M:Global.LHH_TestSDK.ConnectTestDeviceAsync
+  fullName: LHH_TestSDK.ConnectTestDeviceAsync()
+  nameWithType: LHH_TestSDK.ConnectTestDeviceAsync()
+- uid: Global.LHH_TestSDK.ConnectTestDeviceAsync*
+  name: ConnectTestDeviceAsync
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ConnectTestDeviceAsync_
+  commentId: Overload:Global.LHH_TestSDK.ConnectTestDeviceAsync
+  fullName: LHH_TestSDK.ConnectTestDeviceAsync
+  nameWithType: LHH_TestSDK.ConnectTestDeviceAsync
+- uid: Global.LHH_TestSDK.ContainsLog(System.String,System.Int32,System.Boolean,System.Boolean)
+  name: ContainsLog(string, int, bool, bool)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ContainsLog_System_String_System_Int32_System_Boolean_System_Boolean_
+  commentId: M:Global.LHH_TestSDK.ContainsLog(System.String,System.Int32,System.Boolean,System.Boolean)
+  name.vb: ContainsLog(String, Integer, Boolean, Boolean)
+  fullName: LHH_TestSDK.ContainsLog(string, int, bool, bool)
+  fullName.vb: LHH_TestSDK.ContainsLog(String, Integer, Boolean, Boolean)
+  nameWithType: LHH_TestSDK.ContainsLog(string, int, bool, bool)
+  nameWithType.vb: LHH_TestSDK.ContainsLog(String, Integer, Boolean, Boolean)
+- uid: Global.LHH_TestSDK.ContainsLog*
+  name: ContainsLog
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ContainsLog_
+  commentId: Overload:Global.LHH_TestSDK.ContainsLog
+  fullName: LHH_TestSDK.ContainsLog
+  nameWithType: LHH_TestSDK.ContainsLog
+- uid: Global.LHH_TestSDK.DeleteAllGameData
+  name: DeleteAllGameData()
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_DeleteAllGameData
+  commentId: M:Global.LHH_TestSDK.DeleteAllGameData
+  fullName: LHH_TestSDK.DeleteAllGameData()
+  nameWithType: LHH_TestSDK.DeleteAllGameData()
+- uid: Global.LHH_TestSDK.DeleteAllGameData*
+  name: DeleteAllGameData
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_DeleteAllGameData_
+  commentId: Overload:Global.LHH_TestSDK.DeleteAllGameData
+  fullName: LHH_TestSDK.DeleteAllGameData
+  nameWithType: LHH_TestSDK.DeleteAllGameData
+- uid: Global.LHH_TestSDK.DeleteGameData(System.String)
+  name: DeleteGameData(string)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_DeleteGameData_System_String_
+  commentId: M:Global.LHH_TestSDK.DeleteGameData(System.String)
+  name.vb: DeleteGameData(String)
+  fullName: LHH_TestSDK.DeleteGameData(string)
+  fullName.vb: LHH_TestSDK.DeleteGameData(String)
+  nameWithType: LHH_TestSDK.DeleteGameData(string)
+  nameWithType.vb: LHH_TestSDK.DeleteGameData(String)
+- uid: Global.LHH_TestSDK.DeleteGameData*
+  name: DeleteGameData
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_DeleteGameData_
+  commentId: Overload:Global.LHH_TestSDK.DeleteGameData
+  fullName: LHH_TestSDK.DeleteGameData
+  nameWithType: LHH_TestSDK.DeleteGameData
+- uid: Global.LHH_TestSDK.GetDeviceLogs(System.Int32,System.Boolean)
+  name: GetDeviceLogs(int, bool)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetDeviceLogs_System_Int32_System_Boolean_
+  commentId: M:Global.LHH_TestSDK.GetDeviceLogs(System.Int32,System.Boolean)
+  name.vb: GetDeviceLogs(Integer, Boolean)
+  fullName: LHH_TestSDK.GetDeviceLogs(int, bool)
+  fullName.vb: LHH_TestSDK.GetDeviceLogs(Integer, Boolean)
+  nameWithType: LHH_TestSDK.GetDeviceLogs(int, bool)
+  nameWithType.vb: LHH_TestSDK.GetDeviceLogs(Integer, Boolean)
+- uid: Global.LHH_TestSDK.GetDeviceLogs*
+  name: GetDeviceLogs
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetDeviceLogs_
+  commentId: Overload:Global.LHH_TestSDK.GetDeviceLogs
+  fullName: LHH_TestSDK.GetDeviceLogs
+  nameWithType: LHH_TestSDK.GetDeviceLogs
 - uid: Global.LHH_TestSDK.GetGameData(System.String)
   name: GetGameData(string)
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetGameData_System_String_
@@ -127,6 +196,129 @@ references:
   commentId: Overload:Global.LHH_TestSDK.PurchaseByButton
   fullName: LHH_TestSDK.PurchaseByButton
   nameWithType: LHH_TestSDK.PurchaseByButton
+- uid: Global.LHH_TestSDK.SetGameData(System.String,System.Int32)
+  name: SetGameData(string, int)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_SetGameData_System_String_System_Int32_
+  commentId: M:Global.LHH_TestSDK.SetGameData(System.String,System.Int32)
+  name.vb: SetGameData(String, Integer)
+  fullName: LHH_TestSDK.SetGameData(string, int)
+  fullName.vb: LHH_TestSDK.SetGameData(String, Integer)
+  nameWithType: LHH_TestSDK.SetGameData(string, int)
+  nameWithType.vb: LHH_TestSDK.SetGameData(String, Integer)
+- uid: Global.LHH_TestSDK.SetGameData(System.String,System.Single)
+  name: SetGameData(string, float)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_SetGameData_System_String_System_Single_
+  commentId: M:Global.LHH_TestSDK.SetGameData(System.String,System.Single)
+  name.vb: SetGameData(String, Single)
+  fullName: LHH_TestSDK.SetGameData(string, float)
+  fullName.vb: LHH_TestSDK.SetGameData(String, Single)
+  nameWithType: LHH_TestSDK.SetGameData(string, float)
+  nameWithType.vb: LHH_TestSDK.SetGameData(String, Single)
+- uid: Global.LHH_TestSDK.SetGameData(System.String,System.String)
+  name: SetGameData(string, string)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_SetGameData_System_String_System_String_
+  commentId: M:Global.LHH_TestSDK.SetGameData(System.String,System.String)
+  name.vb: SetGameData(String, String)
+  fullName: LHH_TestSDK.SetGameData(string, string)
+  fullName.vb: LHH_TestSDK.SetGameData(String, String)
+  nameWithType: LHH_TestSDK.SetGameData(string, string)
+  nameWithType.vb: LHH_TestSDK.SetGameData(String, String)
+- uid: Global.LHH_TestSDK.SetGameData*
+  name: SetGameData
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_SetGameData_
+  commentId: Overload:Global.LHH_TestSDK.SetGameData
+  fullName: LHH_TestSDK.SetGameData
+  nameWithType: LHH_TestSDK.SetGameData
+- uid: Global.LHH_TestSDK.Swipe(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Swipe(int, int, int, int, int)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_Swipe_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:Global.LHH_TestSDK.Swipe(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  name.vb: Swipe(Integer, Integer, Integer, Integer, Integer)
+  fullName: LHH_TestSDK.Swipe(int, int, int, int, int)
+  fullName.vb: LHH_TestSDK.Swipe(Integer, Integer, Integer, Integer, Integer)
+  nameWithType: LHH_TestSDK.Swipe(int, int, int, int, int)
+  nameWithType.vb: LHH_TestSDK.Swipe(Integer, Integer, Integer, Integer, Integer)
+- uid: Global.LHH_TestSDK.Swipe*
+  name: Swipe
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_Swipe_
+  commentId: Overload:Global.LHH_TestSDK.Swipe
+  fullName: LHH_TestSDK.Swipe
+  nameWithType: LHH_TestSDK.Swipe
+- uid: Global.LHH_TestSDK.TakeScreenshot(System.String,System.String)
+  name: TakeScreenshot(string, string)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TakeScreenshot_System_String_System_String_
+  commentId: M:Global.LHH_TestSDK.TakeScreenshot(System.String,System.String)
+  name.vb: TakeScreenshot(String, String)
+  fullName: LHH_TestSDK.TakeScreenshot(string, string)
+  fullName.vb: LHH_TestSDK.TakeScreenshot(String, String)
+  nameWithType: LHH_TestSDK.TakeScreenshot(string, string)
+  nameWithType.vb: LHH_TestSDK.TakeScreenshot(String, String)
+- uid: Global.LHH_TestSDK.TakeScreenshot*
+  name: TakeScreenshot
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TakeScreenshot_
+  commentId: Overload:Global.LHH_TestSDK.TakeScreenshot
+  fullName: LHH_TestSDK.TakeScreenshot
+  nameWithType: LHH_TestSDK.TakeScreenshot
+- uid: Global.LHH_TestSDK.TapAt(System.Int32,System.Int32)
+  name: TapAt(int, int)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapAt_System_Int32_System_Int32_
+  commentId: M:Global.LHH_TestSDK.TapAt(System.Int32,System.Int32)
+  name.vb: TapAt(Integer, Integer)
+  fullName: LHH_TestSDK.TapAt(int, int)
+  fullName.vb: LHH_TestSDK.TapAt(Integer, Integer)
+  nameWithType: LHH_TestSDK.TapAt(int, int)
+  nameWithType.vb: LHH_TestSDK.TapAt(Integer, Integer)
+- uid: Global.LHH_TestSDK.TapAt*
+  name: TapAt
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapAt_
+  commentId: Overload:Global.LHH_TestSDK.TapAt
+  fullName: LHH_TestSDK.TapAt
+  nameWithType: LHH_TestSDK.TapAt
+- uid: Global.LHH_TestSDK.TapAtNormalized(System.Single,System.Single)
+  name: TapAtNormalized(float, float)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapAtNormalized_System_Single_System_Single_
+  commentId: M:Global.LHH_TestSDK.TapAtNormalized(System.Single,System.Single)
+  name.vb: TapAtNormalized(Single, Single)
+  fullName: LHH_TestSDK.TapAtNormalized(float, float)
+  fullName.vb: LHH_TestSDK.TapAtNormalized(Single, Single)
+  nameWithType: LHH_TestSDK.TapAtNormalized(float, float)
+  nameWithType.vb: LHH_TestSDK.TapAtNormalized(Single, Single)
+- uid: Global.LHH_TestSDK.TapAtNormalized*
+  name: TapAtNormalized
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapAtNormalized_
+  commentId: Overload:Global.LHH_TestSDK.TapAtNormalized
+  fullName: LHH_TestSDK.TapAtNormalized
+  nameWithType: LHH_TestSDK.TapAtNormalized
+- uid: Global.LHH_TestSDK.TapObject(System.String,System.Single)
+  name: TapObject(string, float)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapObject_System_String_System_Single_
+  commentId: M:Global.LHH_TestSDK.TapObject(System.String,System.Single)
+  name.vb: TapObject(String, Single)
+  fullName: LHH_TestSDK.TapObject(string, float)
+  fullName.vb: LHH_TestSDK.TapObject(String, Single)
+  nameWithType: LHH_TestSDK.TapObject(string, float)
+  nameWithType.vb: LHH_TestSDK.TapObject(String, Single)
+- uid: Global.LHH_TestSDK.TapObject*
+  name: TapObject
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapObject_
+  commentId: Overload:Global.LHH_TestSDK.TapObject
+  fullName: LHH_TestSDK.TapObject
+  nameWithType: LHH_TestSDK.TapObject
+- uid: Global.LHH_TestSDK.TapObjectDirect(System.String)
+  name: TapObjectDirect(string)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapObjectDirect_System_String_
+  commentId: M:Global.LHH_TestSDK.TapObjectDirect(System.String)
+  name.vb: TapObjectDirect(String)
+  fullName: LHH_TestSDK.TapObjectDirect(string)
+  fullName.vb: LHH_TestSDK.TapObjectDirect(String)
+  nameWithType: LHH_TestSDK.TapObjectDirect(string)
+  nameWithType.vb: LHH_TestSDK.TapObjectDirect(String)
+- uid: Global.LHH_TestSDK.TapObjectDirect*
+  name: TapObjectDirect
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapObjectDirect_
+  commentId: Overload:Global.LHH_TestSDK.TapObjectDirect
+  fullName: LHH_TestSDK.TapObjectDirect
+  nameWithType: LHH_TestSDK.TapObjectDirect
 - uid: Global.LHH_TestSDK.WaitForObject(System.String,System.Single)
   name: WaitForObject(string, float)
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForObject_System_String_System_Single_
