@@ -107,6 +107,39 @@ public async Task Shop_opens_on_home()
     await LHH_TestSDK.ClickButton(&quot;__VIEWS__/Shop/.../Open Shop&quot;);
 }
 </code></pre>
+<h2 id="appsflyer-event-checks">AppsFlyer event checks</h2>
+<p>Development builds with <code>LHH_AUTOMATION_TEST</code> and AppsFlyer plugin 6.18.x record every <code>AppsFlyer.sendEvent</code> and <code>logAdRevenue</code> call the game makes. Games need no code change: the SDK hooks in once AppsFlyer finishes init. Calling <code>LHH.TestSDK.Integrations.AppsFlyerHook.AppsFlyerRecorder.Install();</code> right after AppsFlyer init is optional. Purchase Connector purchases and events sent before the hook installs are not recorded.</p>
+<table>
+<thead>
+<tr>
+<th>LHH_TestSDK</th>
+<th>tcli</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WaitForAnalyticsEvent</code></td>
+<td><code>wait-for-analytics-event &lt;name&gt; [--param k=v ...] [--since-seq] [--timeout]</code></td>
+</tr>
+<tr>
+<td><code>GetAnalyticsEvents</code></td>
+<td><code>analytics-events [--name] [--since-seq] [--since-time] [--limit]</code></td>
+</tr>
+<tr>
+<td><code>ClearAnalyticsEvents</code></td>
+<td><code>analytics-clear</code></td>
+</tr>
+<tr>
+<td><code>GetAnalyticsHookStatus</code></td>
+<td><code>analytics-status</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-csharp">await LHH_TestSDK.ClearAnalyticsEvents();
+// ... play the first level ...
+await LHH_TestSDK.WaitForAnalyticsEvent(&quot;af_level_achieved&quot;,
+    new Dictionary&lt;string, string&gt; { [&quot;af_level&quot;] = &quot;2&quot; }, timeoutSeconds: 90f);
+</code></pre>
 <p>Requires Unity <strong>2022.3.67f2</strong> or newer.</p>
 
 </article>

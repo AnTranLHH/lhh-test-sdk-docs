@@ -4,6 +4,60 @@ references:
 - uid: Global
   name: ''
   href: api/Global.html
+- uid: Global.LHH_RescueTestRecord
+  name: LHH_RescueTestRecord
+  href: api/Global.LHH_RescueTestRecord.html
+  commentId: T:Global.LHH_RescueTestRecord
+  fullName: LHH_RescueTestRecord
+  nameWithType: LHH_RescueTestRecord
+- uid: Global.LHH_RescueTestRecord.#ctor
+  name: LHH_RescueTestRecord()
+  href: api/Global.LHH_RescueTestRecord.html#Global_LHH_RescueTestRecord__ctor
+  commentId: M:Global.LHH_RescueTestRecord.#ctor
+  name.vb: New()
+  fullName: LHH_RescueTestRecord.LHH_RescueTestRecord()
+  fullName.vb: LHH_RescueTestRecord.New()
+  nameWithType: LHH_RescueTestRecord.LHH_RescueTestRecord()
+  nameWithType.vb: LHH_RescueTestRecord.New()
+- uid: Global.LHH_RescueTestRecord.#ctor*
+  name: LHH_RescueTestRecord
+  href: api/Global.LHH_RescueTestRecord.html#Global_LHH_RescueTestRecord__ctor_
+  commentId: Overload:Global.LHH_RescueTestRecord.#ctor
+  name.vb: New
+  fullName: LHH_RescueTestRecord.LHH_RescueTestRecord
+  fullName.vb: LHH_RescueTestRecord.New
+  nameWithType: LHH_RescueTestRecord.LHH_RescueTestRecord
+  nameWithType.vb: LHH_RescueTestRecord.New
+- uid: Global.LHH_RescueTestRecord.Api
+  name: Api
+  href: api/Global.LHH_RescueTestRecord.html#Global_LHH_RescueTestRecord_Api
+  commentId: F:Global.LHH_RescueTestRecord.Api
+  fullName: LHH_RescueTestRecord.Api
+  nameWithType: LHH_RescueTestRecord.Api
+- uid: Global.LHH_RescueTestRecord.FinishedAt
+  name: FinishedAt
+  href: api/Global.LHH_RescueTestRecord.html#Global_LHH_RescueTestRecord_FinishedAt
+  commentId: F:Global.LHH_RescueTestRecord.FinishedAt
+  fullName: LHH_RescueTestRecord.FinishedAt
+  nameWithType: LHH_RescueTestRecord.FinishedAt
+- uid: Global.LHH_RescueTestRecord.RequestId
+  name: RequestId
+  href: api/Global.LHH_RescueTestRecord.html#Global_LHH_RescueTestRecord_RequestId
+  commentId: F:Global.LHH_RescueTestRecord.RequestId
+  fullName: LHH_RescueTestRecord.RequestId
+  nameWithType: LHH_RescueTestRecord.RequestId
+- uid: Global.LHH_RescueTestRecord.SummaryPath
+  name: SummaryPath
+  href: api/Global.LHH_RescueTestRecord.html#Global_LHH_RescueTestRecord_SummaryPath
+  commentId: F:Global.LHH_RescueTestRecord.SummaryPath
+  fullName: LHH_RescueTestRecord.SummaryPath
+  nameWithType: LHH_RescueTestRecord.SummaryPath
+- uid: Global.LHH_RescueTestRecord.TestName
+  name: TestName
+  href: api/Global.LHH_RescueTestRecord.html#Global_LHH_RescueTestRecord_TestName
+  commentId: F:Global.LHH_RescueTestRecord.TestName
+  fullName: LHH_RescueTestRecord.TestName
+  nameWithType: LHH_RescueTestRecord.TestName
 - uid: Global.LHH_TestSDK
   name: LHH_TestSDK
   href: api/Global.LHH_TestSDK.html
@@ -22,15 +76,27 @@ references:
   commentId: Overload:Global.LHH_TestSDK.CleanUpAfterTest
   fullName: LHH_TestSDK.CleanUpAfterTest
   nameWithType: LHH_TestSDK.CleanUpAfterTest
-- uid: Global.LHH_TestSDK.ClickButton(System.String,System.Single)
-  name: ClickButton(string, float)
-  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ClickButton_System_String_System_Single_
-  commentId: M:Global.LHH_TestSDK.ClickButton(System.String,System.Single)
-  name.vb: ClickButton(String, Single)
-  fullName: LHH_TestSDK.ClickButton(string, float)
-  fullName.vb: LHH_TestSDK.ClickButton(String, Single)
-  nameWithType: LHH_TestSDK.ClickButton(string, float)
-  nameWithType.vb: LHH_TestSDK.ClickButton(String, Single)
+- uid: Global.LHH_TestSDK.ClearAnalyticsEvents
+  name: ClearAnalyticsEvents()
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ClearAnalyticsEvents
+  commentId: M:Global.LHH_TestSDK.ClearAnalyticsEvents
+  fullName: LHH_TestSDK.ClearAnalyticsEvents()
+  nameWithType: LHH_TestSDK.ClearAnalyticsEvents()
+- uid: Global.LHH_TestSDK.ClearAnalyticsEvents*
+  name: ClearAnalyticsEvents
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ClearAnalyticsEvents_
+  commentId: Overload:Global.LHH_TestSDK.ClearAnalyticsEvents
+  fullName: LHH_TestSDK.ClearAnalyticsEvents
+  nameWithType: LHH_TestSDK.ClearAnalyticsEvents
+- uid: Global.LHH_TestSDK.ClickButton(System.String,System.Single,RescueOptions)
+  name: ClickButton(string, float, RescueOptions)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ClickButton_System_String_System_Single_RescueOptions_
+  commentId: M:Global.LHH_TestSDK.ClickButton(System.String,System.Single,RescueOptions)
+  name.vb: ClickButton(String, Single, RescueOptions)
+  fullName: LHH_TestSDK.ClickButton(string, float, RescueOptions)
+  fullName.vb: LHH_TestSDK.ClickButton(String, Single, RescueOptions)
+  nameWithType: LHH_TestSDK.ClickButton(string, float, RescueOptions)
+  nameWithType.vb: LHH_TestSDK.ClickButton(String, Single, RescueOptions)
 - uid: Global.LHH_TestSDK.ClickButton*
   name: ClickButton
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ClickButton_
@@ -91,6 +157,33 @@ references:
   commentId: Overload:Global.LHH_TestSDK.DeleteGameData
   fullName: LHH_TestSDK.DeleteGameData
   nameWithType: LHH_TestSDK.DeleteGameData
+- uid: Global.LHH_TestSDK.GetAnalyticsEvents(System.String,System.String,System.Int64,System.String,System.Int32)
+  name: GetAnalyticsEvents(string, string, long, string, int)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetAnalyticsEvents_System_String_System_String_System_Int64_System_String_System_Int32_
+  commentId: M:Global.LHH_TestSDK.GetAnalyticsEvents(System.String,System.String,System.Int64,System.String,System.Int32)
+  name.vb: GetAnalyticsEvents(String, String, Long, String, Integer)
+  fullName: LHH_TestSDK.GetAnalyticsEvents(string, string, long, string, int)
+  fullName.vb: LHH_TestSDK.GetAnalyticsEvents(String, String, Long, String, Integer)
+  nameWithType: LHH_TestSDK.GetAnalyticsEvents(string, string, long, string, int)
+  nameWithType.vb: LHH_TestSDK.GetAnalyticsEvents(String, String, Long, String, Integer)
+- uid: Global.LHH_TestSDK.GetAnalyticsEvents*
+  name: GetAnalyticsEvents
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetAnalyticsEvents_
+  commentId: Overload:Global.LHH_TestSDK.GetAnalyticsEvents
+  fullName: LHH_TestSDK.GetAnalyticsEvents
+  nameWithType: LHH_TestSDK.GetAnalyticsEvents
+- uid: Global.LHH_TestSDK.GetAnalyticsHookStatus
+  name: GetAnalyticsHookStatus()
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetAnalyticsHookStatus
+  commentId: M:Global.LHH_TestSDK.GetAnalyticsHookStatus
+  fullName: LHH_TestSDK.GetAnalyticsHookStatus()
+  nameWithType: LHH_TestSDK.GetAnalyticsHookStatus()
+- uid: Global.LHH_TestSDK.GetAnalyticsHookStatus*
+  name: GetAnalyticsHookStatus
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetAnalyticsHookStatus_
+  commentId: Overload:Global.LHH_TestSDK.GetAnalyticsHookStatus
+  fullName: LHH_TestSDK.GetAnalyticsHookStatus
+  nameWithType: LHH_TestSDK.GetAnalyticsHookStatus
 - uid: Global.LHH_TestSDK.GetDeviceLogs(System.Int32,System.Boolean)
   name: GetDeviceLogs(int, bool)
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetDeviceLogs_System_Int32_System_Boolean_
@@ -121,15 +214,15 @@ references:
   commentId: Overload:Global.LHH_TestSDK.GetGameData
   fullName: LHH_TestSDK.GetGameData
   nameWithType: LHH_TestSDK.GetGameData
-- uid: Global.LHH_TestSDK.GetText(System.String,System.Single)
-  name: GetText(string, float)
-  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetText_System_String_System_Single_
-  commentId: M:Global.LHH_TestSDK.GetText(System.String,System.Single)
-  name.vb: GetText(String, Single)
-  fullName: LHH_TestSDK.GetText(string, float)
-  fullName.vb: LHH_TestSDK.GetText(String, Single)
-  nameWithType: LHH_TestSDK.GetText(string, float)
-  nameWithType.vb: LHH_TestSDK.GetText(String, Single)
+- uid: Global.LHH_TestSDK.GetText(System.String,System.Single,RescueOptions)
+  name: GetText(string, float, RescueOptions)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetText_System_String_System_Single_RescueOptions_
+  commentId: M:Global.LHH_TestSDK.GetText(System.String,System.Single,RescueOptions)
+  name.vb: GetText(String, Single, RescueOptions)
+  fullName: LHH_TestSDK.GetText(string, float, RescueOptions)
+  fullName.vb: LHH_TestSDK.GetText(String, Single, RescueOptions)
+  nameWithType: LHH_TestSDK.GetText(string, float, RescueOptions)
+  nameWithType.vb: LHH_TestSDK.GetText(String, Single, RescueOptions)
 - uid: Global.LHH_TestSDK.GetText*
   name: GetText
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetText_
@@ -196,6 +289,132 @@ references:
   commentId: Overload:Global.LHH_TestSDK.PurchaseByButton
   fullName: LHH_TestSDK.PurchaseByButton
   nameWithType: LHH_TestSDK.PurchaseByButton
+- uid: Global.LHH_TestSDK.Rescue
+  name: LHH_TestSDK.Rescue
+  href: api/Global.LHH_TestSDK.Rescue.html
+  commentId: T:Global.LHH_TestSDK.Rescue
+  fullName: LHH_TestSDK.Rescue
+  nameWithType: LHH_TestSDK.Rescue
+- uid: Global.LHH_TestSDK.Rescue.Enabled
+  name: Enabled
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Enabled
+  commentId: P:Global.LHH_TestSDK.Rescue.Enabled
+  fullName: LHH_TestSDK.Rescue.Enabled
+  nameWithType: LHH_TestSDK.Rescue.Enabled
+- uid: Global.LHH_TestSDK.Rescue.Enabled*
+  name: Enabled
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Enabled_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.Enabled
+  fullName: LHH_TestSDK.Rescue.Enabled
+  nameWithType: LHH_TestSDK.Rescue.Enabled
+- uid: Global.LHH_TestSDK.Rescue.ExecutablePath
+  name: ExecutablePath
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_ExecutablePath
+  commentId: P:Global.LHH_TestSDK.Rescue.ExecutablePath
+  fullName: LHH_TestSDK.Rescue.ExecutablePath
+  nameWithType: LHH_TestSDK.Rescue.ExecutablePath
+- uid: Global.LHH_TestSDK.Rescue.ExecutablePath*
+  name: ExecutablePath
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_ExecutablePath_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.ExecutablePath
+  fullName: LHH_TestSDK.Rescue.ExecutablePath
+  nameWithType: LHH_TestSDK.Rescue.ExecutablePath
+- uid: Global.LHH_TestSDK.Rescue.ExtraArgs
+  name: ExtraArgs
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_ExtraArgs
+  commentId: P:Global.LHH_TestSDK.Rescue.ExtraArgs
+  fullName: LHH_TestSDK.Rescue.ExtraArgs
+  nameWithType: LHH_TestSDK.Rescue.ExtraArgs
+- uid: Global.LHH_TestSDK.Rescue.ExtraArgs*
+  name: ExtraArgs
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_ExtraArgs_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.ExtraArgs
+  fullName: LHH_TestSDK.Rescue.ExtraArgs
+  nameWithType: LHH_TestSDK.Rescue.ExtraArgs
+- uid: Global.LHH_TestSDK.Rescue.MaxAttemptsPerWait
+  name: MaxAttemptsPerWait
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_MaxAttemptsPerWait
+  commentId: P:Global.LHH_TestSDK.Rescue.MaxAttemptsPerWait
+  fullName: LHH_TestSDK.Rescue.MaxAttemptsPerWait
+  nameWithType: LHH_TestSDK.Rescue.MaxAttemptsPerWait
+- uid: Global.LHH_TestSDK.Rescue.MaxAttemptsPerWait*
+  name: MaxAttemptsPerWait
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_MaxAttemptsPerWait_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.MaxAttemptsPerWait
+  fullName: LHH_TestSDK.Rescue.MaxAttemptsPerWait
+  nameWithType: LHH_TestSDK.Rescue.MaxAttemptsPerWait
+- uid: Global.LHH_TestSDK.Rescue.MaxMinutes
+  name: MaxMinutes
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_MaxMinutes
+  commentId: P:Global.LHH_TestSDK.Rescue.MaxMinutes
+  fullName: LHH_TestSDK.Rescue.MaxMinutes
+  nameWithType: LHH_TestSDK.Rescue.MaxMinutes
+- uid: Global.LHH_TestSDK.Rescue.MaxMinutes*
+  name: MaxMinutes
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_MaxMinutes_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.MaxMinutes
+  fullName: LHH_TestSDK.Rescue.MaxMinutes
+  nameWithType: LHH_TestSDK.Rescue.MaxMinutes
+- uid: Global.LHH_TestSDK.Rescue.MaxRescuesPerTest
+  name: MaxRescuesPerTest
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_MaxRescuesPerTest
+  commentId: P:Global.LHH_TestSDK.Rescue.MaxRescuesPerTest
+  fullName: LHH_TestSDK.Rescue.MaxRescuesPerTest
+  nameWithType: LHH_TestSDK.Rescue.MaxRescuesPerTest
+- uid: Global.LHH_TestSDK.Rescue.MaxRescuesPerTest*
+  name: MaxRescuesPerTest
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_MaxRescuesPerTest_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.MaxRescuesPerTest
+  fullName: LHH_TestSDK.Rescue.MaxRescuesPerTest
+  nameWithType: LHH_TestSDK.Rescue.MaxRescuesPerTest
+- uid: Global.LHH_TestSDK.Rescue.Model
+  name: Model
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Model
+  commentId: P:Global.LHH_TestSDK.Rescue.Model
+  fullName: LHH_TestSDK.Rescue.Model
+  nameWithType: LHH_TestSDK.Rescue.Model
+- uid: Global.LHH_TestSDK.Rescue.Model*
+  name: Model
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Model_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.Model
+  fullName: LHH_TestSDK.Rescue.Model
+  nameWithType: LHH_TestSDK.Rescue.Model
+- uid: Global.LHH_TestSDK.Rescue.Records
+  name: Records
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Records
+  commentId: P:Global.LHH_TestSDK.Rescue.Records
+  fullName: LHH_TestSDK.Rescue.Records
+  nameWithType: LHH_TestSDK.Rescue.Records
+- uid: Global.LHH_TestSDK.Rescue.Records*
+  name: Records
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Records_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.Records
+  fullName: LHH_TestSDK.Rescue.Records
+  nameWithType: LHH_TestSDK.Rescue.Records
+- uid: Global.LHH_TestSDK.Rescue.Runner
+  name: Runner
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Runner
+  commentId: P:Global.LHH_TestSDK.Rescue.Runner
+  fullName: LHH_TestSDK.Rescue.Runner
+  nameWithType: LHH_TestSDK.Rescue.Runner
+- uid: Global.LHH_TestSDK.Rescue.Runner*
+  name: Runner
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Runner_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.Runner
+  fullName: LHH_TestSDK.Rescue.Runner
+  nameWithType: LHH_TestSDK.Rescue.Runner
+- uid: Global.LHH_TestSDK.Rescue.Strict
+  name: Strict
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Strict
+  commentId: P:Global.LHH_TestSDK.Rescue.Strict
+  fullName: LHH_TestSDK.Rescue.Strict
+  nameWithType: LHH_TestSDK.Rescue.Strict
+- uid: Global.LHH_TestSDK.Rescue.Strict*
+  name: Strict
+  href: api/Global.LHH_TestSDK.Rescue.html#Global_LHH_TestSDK_Rescue_Strict_
+  commentId: Overload:Global.LHH_TestSDK.Rescue.Strict
+  fullName: LHH_TestSDK.Rescue.Strict
+  nameWithType: LHH_TestSDK.Rescue.Strict
 - uid: Global.LHH_TestSDK.SetGameData(System.String,System.Int32)
   name: SetGameData(string, int)
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_SetGameData_System_String_System_Int32_
@@ -289,15 +508,15 @@ references:
   commentId: Overload:Global.LHH_TestSDK.TapAtNormalized
   fullName: LHH_TestSDK.TapAtNormalized
   nameWithType: LHH_TestSDK.TapAtNormalized
-- uid: Global.LHH_TestSDK.TapObject(System.String,System.Single)
-  name: TapObject(string, float)
-  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapObject_System_String_System_Single_
-  commentId: M:Global.LHH_TestSDK.TapObject(System.String,System.Single)
-  name.vb: TapObject(String, Single)
-  fullName: LHH_TestSDK.TapObject(string, float)
-  fullName.vb: LHH_TestSDK.TapObject(String, Single)
-  nameWithType: LHH_TestSDK.TapObject(string, float)
-  nameWithType.vb: LHH_TestSDK.TapObject(String, Single)
+- uid: Global.LHH_TestSDK.TapObject(System.String,System.Single,RescueOptions)
+  name: TapObject(string, float, RescueOptions)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapObject_System_String_System_Single_RescueOptions_
+  commentId: M:Global.LHH_TestSDK.TapObject(System.String,System.Single,RescueOptions)
+  name.vb: TapObject(String, Single, RescueOptions)
+  fullName: LHH_TestSDK.TapObject(string, float, RescueOptions)
+  fullName.vb: LHH_TestSDK.TapObject(String, Single, RescueOptions)
+  nameWithType: LHH_TestSDK.TapObject(string, float, RescueOptions)
+  nameWithType.vb: LHH_TestSDK.TapObject(String, Single, RescueOptions)
 - uid: Global.LHH_TestSDK.TapObject*
   name: TapObject
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_TapObject_
@@ -319,33 +538,636 @@ references:
   commentId: Overload:Global.LHH_TestSDK.TapObjectDirect
   fullName: LHH_TestSDK.TapObjectDirect
   nameWithType: LHH_TestSDK.TapObjectDirect
-- uid: Global.LHH_TestSDK.WaitForObject(System.String,System.Single)
-  name: WaitForObject(string, float)
-  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForObject_System_String_System_Single_
-  commentId: M:Global.LHH_TestSDK.WaitForObject(System.String,System.Single)
-  name.vb: WaitForObject(String, Single)
-  fullName: LHH_TestSDK.WaitForObject(string, float)
-  fullName.vb: LHH_TestSDK.WaitForObject(String, Single)
-  nameWithType: LHH_TestSDK.WaitForObject(string, float)
-  nameWithType.vb: LHH_TestSDK.WaitForObject(String, Single)
+- uid: Global.LHH_TestSDK.WaitForAnalyticsEvent(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Single,System.Int64)
+  name: WaitForAnalyticsEvent(string, IDictionary<string, string>, float, long)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForAnalyticsEvent_System_String_System_Collections_Generic_IDictionary_System_String_System_String__System_Single_System_Int64_
+  commentId: M:Global.LHH_TestSDK.WaitForAnalyticsEvent(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Single,System.Int64)
+  name.vb: WaitForAnalyticsEvent(String, IDictionary(Of String, String), Single, Long)
+  fullName: LHH_TestSDK.WaitForAnalyticsEvent(string, System.Collections.Generic.IDictionary<string, string>, float, long)
+  fullName.vb: LHH_TestSDK.WaitForAnalyticsEvent(String, System.Collections.Generic.IDictionary(Of String, String), Single, Long)
+  nameWithType: LHH_TestSDK.WaitForAnalyticsEvent(string, IDictionary<string, string>, float, long)
+  nameWithType.vb: LHH_TestSDK.WaitForAnalyticsEvent(String, IDictionary(Of String, String), Single, Long)
+- uid: Global.LHH_TestSDK.WaitForAnalyticsEvent*
+  name: WaitForAnalyticsEvent
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForAnalyticsEvent_
+  commentId: Overload:Global.LHH_TestSDK.WaitForAnalyticsEvent
+  fullName: LHH_TestSDK.WaitForAnalyticsEvent
+  nameWithType: LHH_TestSDK.WaitForAnalyticsEvent
+- uid: Global.LHH_TestSDK.WaitForObject(System.String,System.Single,RescueOptions)
+  name: WaitForObject(string, float, RescueOptions)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForObject_System_String_System_Single_RescueOptions_
+  commentId: M:Global.LHH_TestSDK.WaitForObject(System.String,System.Single,RescueOptions)
+  name.vb: WaitForObject(String, Single, RescueOptions)
+  fullName: LHH_TestSDK.WaitForObject(string, float, RescueOptions)
+  fullName.vb: LHH_TestSDK.WaitForObject(String, Single, RescueOptions)
+  nameWithType: LHH_TestSDK.WaitForObject(string, float, RescueOptions)
+  nameWithType.vb: LHH_TestSDK.WaitForObject(String, Single, RescueOptions)
 - uid: Global.LHH_TestSDK.WaitForObject*
   name: WaitForObject
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForObject_
   commentId: Overload:Global.LHH_TestSDK.WaitForObject
   fullName: LHH_TestSDK.WaitForObject
   nameWithType: LHH_TestSDK.WaitForObject
-- uid: Global.LHH_TestSDK.WaitForScene(System.String,System.Single)
-  name: WaitForScene(string, float)
-  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForScene_System_String_System_Single_
-  commentId: M:Global.LHH_TestSDK.WaitForScene(System.String,System.Single)
-  name.vb: WaitForScene(String, Single)
-  fullName: LHH_TestSDK.WaitForScene(string, float)
-  fullName.vb: LHH_TestSDK.WaitForScene(String, Single)
-  nameWithType: LHH_TestSDK.WaitForScene(string, float)
-  nameWithType.vb: LHH_TestSDK.WaitForScene(String, Single)
+- uid: Global.LHH_TestSDK.WaitForScene(System.String,System.Single,RescueOptions)
+  name: WaitForScene(string, float, RescueOptions)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForScene_System_String_System_Single_RescueOptions_
+  commentId: M:Global.LHH_TestSDK.WaitForScene(System.String,System.Single,RescueOptions)
+  name.vb: WaitForScene(String, Single, RescueOptions)
+  fullName: LHH_TestSDK.WaitForScene(string, float, RescueOptions)
+  fullName.vb: LHH_TestSDK.WaitForScene(String, Single, RescueOptions)
+  nameWithType: LHH_TestSDK.WaitForScene(string, float, RescueOptions)
+  nameWithType.vb: LHH_TestSDK.WaitForScene(String, Single, RescueOptions)
 - uid: Global.LHH_TestSDK.WaitForScene*
   name: WaitForScene
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_WaitForScene_
   commentId: Overload:Global.LHH_TestSDK.WaitForScene
   fullName: LHH_TestSDK.WaitForScene
   nameWithType: LHH_TestSDK.WaitForScene
+- uid: Global.RescueOptions
+  name: RescueOptions
+  href: api/Global.RescueOptions.html
+  commentId: T:Global.RescueOptions
+  fullName: RescueOptions
+  nameWithType: RescueOptions
+- uid: Global.RescueOptions.#ctor
+  name: RescueOptions()
+  href: api/Global.RescueOptions.html#Global_RescueOptions__ctor
+  commentId: M:Global.RescueOptions.#ctor
+  name.vb: New()
+  fullName: RescueOptions.RescueOptions()
+  fullName.vb: RescueOptions.New()
+  nameWithType: RescueOptions.RescueOptions()
+  nameWithType.vb: RescueOptions.New()
+- uid: Global.RescueOptions.#ctor*
+  name: RescueOptions
+  href: api/Global.RescueOptions.html#Global_RescueOptions__ctor_
+  commentId: Overload:Global.RescueOptions.#ctor
+  name.vb: New
+  fullName: RescueOptions.RescueOptions
+  fullName.vb: RescueOptions.New
+  nameWithType: RescueOptions.RescueOptions
+  nameWithType.vb: RescueOptions.New
+- uid: Global.RescueOptions.Expect(System.String)
+  name: Expect(string)
+  href: api/Global.RescueOptions.html#Global_RescueOptions_Expect_System_String_
+  commentId: M:Global.RescueOptions.Expect(System.String)
+  name.vb: Expect(String)
+  fullName: RescueOptions.Expect(string)
+  fullName.vb: RescueOptions.Expect(String)
+  nameWithType: RescueOptions.Expect(string)
+  nameWithType.vb: RescueOptions.Expect(String)
+- uid: Global.RescueOptions.Expect*
+  name: Expect
+  href: api/Global.RescueOptions.html#Global_RescueOptions_Expect_
+  commentId: Overload:Global.RescueOptions.Expect
+  fullName: RescueOptions.Expect
+  nameWithType: RescueOptions.Expect
+- uid: Global.RescueOptions.Off
+  name: Off
+  href: api/Global.RescueOptions.html#Global_RescueOptions_Off
+  commentId: P:Global.RescueOptions.Off
+  fullName: RescueOptions.Off
+  nameWithType: RescueOptions.Off
+- uid: Global.RescueOptions.Off*
+  name: Off
+  href: api/Global.RescueOptions.html#Global_RescueOptions_Off_
+  commentId: Overload:Global.RescueOptions.Off
+  fullName: RescueOptions.Off
+  nameWithType: RescueOptions.Off
+- uid: Global.RescueRunner
+  name: RescueRunner
+  href: api/Global.RescueRunner.html
+  commentId: T:Global.RescueRunner
+  fullName: RescueRunner
+  nameWithType: RescueRunner
+- uid: Global.RescueRunner.ClaudeCode
+  name: ClaudeCode
+  href: api/Global.RescueRunner.html#Global_RescueRunner_ClaudeCode
+  commentId: F:Global.RescueRunner.ClaudeCode
+  fullName: RescueRunner.ClaudeCode
+  nameWithType: RescueRunner.ClaudeCode
+- uid: Global.RescueRunner.CodexCli
+  name: CodexCli
+  href: api/Global.RescueRunner.html#Global_RescueRunner_CodexCli
+  commentId: F:Global.RescueRunner.CodexCli
+  fullName: RescueRunner.CodexCli
+  nameWithType: RescueRunner.CodexCli
+- uid: Global.RescueRunner.CursorCli
+  name: CursorCli
+  href: api/Global.RescueRunner.html#Global_RescueRunner_CursorCli
+  commentId: F:Global.RescueRunner.CursorCli
+  fullName: RescueRunner.CursorCli
+  nameWithType: RescueRunner.CursorCli
+- uid: LHH.TestSDK.Analytics
+  name: LHH.TestSDK.Analytics
+  href: api/LHH.TestSDK.Analytics.html
+  commentId: N:LHH.TestSDK.Analytics
+  fullName: LHH.TestSDK.Analytics
+  nameWithType: LHH.TestSDK.Analytics
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandNames
+  name: AnalyticsCommandNames
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandNames.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsCommandNames
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandNames
+  nameWithType: AnalyticsCommandNames
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandNames.Clear
+  name: Clear
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandNames.html#LHH_TestSDK_Analytics_AnalyticsCommandNames_Clear
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandNames.Clear
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandNames.Clear
+  nameWithType: AnalyticsCommandNames.Clear
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandNames.Command
+  name: Command
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandNames.html#LHH_TestSDK_Analytics_AnalyticsCommandNames_Command
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandNames.Command
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandNames.Command
+  nameWithType: AnalyticsCommandNames.Command
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandNames.GetEvents
+  name: GetEvents
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandNames.html#LHH_TestSDK_Analytics_AnalyticsCommandNames_GetEvents
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandNames.GetEvents
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandNames.GetEvents
+  nameWithType: AnalyticsCommandNames.GetEvents
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandNames.Status
+  name: Status
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandNames.html#LHH_TestSDK_Analytics_AnalyticsCommandNames_Status
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandNames.Status
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandNames.Status
+  nameWithType: AnalyticsCommandNames.Status
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload
+  name: AnalyticsCommandPayload
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsCommandPayload
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload
+  nameWithType: AnalyticsCommandPayload
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.#ctor
+  name: AnalyticsCommandPayload()
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload__ctor
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsCommandPayload.#ctor
+  name.vb: New()
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.AnalyticsCommandPayload()
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsCommandPayload.New()
+  nameWithType: AnalyticsCommandPayload.AnalyticsCommandPayload()
+  nameWithType.vb: AnalyticsCommandPayload.New()
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.#ctor*
+  name: AnalyticsCommandPayload
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload__ctor_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsCommandPayload.#ctor
+  name.vb: New
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.AnalyticsCommandPayload
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsCommandPayload.New
+  nameWithType: AnalyticsCommandPayload.AnalyticsCommandPayload
+  nameWithType.vb: AnalyticsCommandPayload.New
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.analyticsSubCommand
+  name: analyticsSubCommand
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload_analyticsSubCommand
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandPayload.analyticsSubCommand
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.analyticsSubCommand
+  nameWithType: AnalyticsCommandPayload.analyticsSubCommand
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.eventName
+  name: eventName
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload_eventName
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandPayload.eventName
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.eventName
+  nameWithType: AnalyticsCommandPayload.eventName
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.limit
+  name: limit
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload_limit
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandPayload.limit
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.limit
+  nameWithType: AnalyticsCommandPayload.limit
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.provider
+  name: provider
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload_provider
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandPayload.provider
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.provider
+  nameWithType: AnalyticsCommandPayload.provider
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.sinceSequence
+  name: sinceSequence
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload_sinceSequence
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandPayload.sinceSequence
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.sinceSequence
+  nameWithType: AnalyticsCommandPayload.sinceSequence
+- uid: LHH.TestSDK.Analytics.AnalyticsCommandPayload.sinceTimeUtc
+  name: sinceTimeUtc
+  href: api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html#LHH_TestSDK_Analytics_AnalyticsCommandPayload_sinceTimeUtc
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsCommandPayload.sinceTimeUtc
+  fullName: LHH.TestSDK.Analytics.AnalyticsCommandPayload.sinceTimeUtc
+  nameWithType: AnalyticsCommandPayload.sinceTimeUtc
+- uid: LHH.TestSDK.Analytics.AnalyticsEventKind
+  name: AnalyticsEventKind
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventKind.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsEventKind
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventKind
+  nameWithType: AnalyticsEventKind
+- uid: LHH.TestSDK.Analytics.AnalyticsEventKind.AdRevenue
+  name: AdRevenue
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventKind.html#LHH_TestSDK_Analytics_AnalyticsEventKind_AdRevenue
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventKind.AdRevenue
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventKind.AdRevenue
+  nameWithType: AnalyticsEventKind.AdRevenue
+- uid: LHH.TestSDK.Analytics.AnalyticsEventKind.SendEvent
+  name: SendEvent
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventKind.html#LHH_TestSDK_Analytics_AnalyticsEventKind_SendEvent
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventKind.SendEvent
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventKind.SendEvent
+  nameWithType: AnalyticsEventKind.SendEvent
+- uid: LHH.TestSDK.Analytics.AnalyticsEventListDto
+  name: AnalyticsEventListDto
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventListDto.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsEventListDto
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventListDto
+  nameWithType: AnalyticsEventListDto
+- uid: LHH.TestSDK.Analytics.AnalyticsEventListDto.#ctor
+  name: AnalyticsEventListDto()
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventListDto.html#LHH_TestSDK_Analytics_AnalyticsEventListDto__ctor
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventListDto.#ctor
+  name.vb: New()
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventListDto.AnalyticsEventListDto()
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventListDto.New()
+  nameWithType: AnalyticsEventListDto.AnalyticsEventListDto()
+  nameWithType.vb: AnalyticsEventListDto.New()
+- uid: LHH.TestSDK.Analytics.AnalyticsEventListDto.#ctor*
+  name: AnalyticsEventListDto
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventListDto.html#LHH_TestSDK_Analytics_AnalyticsEventListDto__ctor_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventListDto.#ctor
+  name.vb: New
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventListDto.AnalyticsEventListDto
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventListDto.New
+  nameWithType: AnalyticsEventListDto.AnalyticsEventListDto
+  nameWithType.vb: AnalyticsEventListDto.New
+- uid: LHH.TestSDK.Analytics.AnalyticsEventListDto.events
+  name: events
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventListDto.html#LHH_TestSDK_Analytics_AnalyticsEventListDto_events
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventListDto.events
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventListDto.events
+  nameWithType: AnalyticsEventListDto.events
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord
+  name: AnalyticsEventRecord
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsEventRecord
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord
+  nameWithType: AnalyticsEventRecord
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.#ctor
+  name: AnalyticsEventRecord()
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord__ctor
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventRecord.#ctor
+  name.vb: New()
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.AnalyticsEventRecord()
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventRecord.New()
+  nameWithType: AnalyticsEventRecord.AnalyticsEventRecord()
+  nameWithType.vb: AnalyticsEventRecord.New()
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.#ctor*
+  name: AnalyticsEventRecord
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord__ctor_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventRecord.#ctor
+  name.vb: New
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.AnalyticsEventRecord
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventRecord.New
+  nameWithType: AnalyticsEventRecord.AnalyticsEventRecord
+  nameWithType.vb: AnalyticsEventRecord.New
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.currencyIso4217Code
+  name: currencyIso4217Code
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_currencyIso4217Code
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.currencyIso4217Code
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.currencyIso4217Code
+  nameWithType: AnalyticsEventRecord.currencyIso4217Code
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.eventName
+  name: eventName
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_eventName
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.eventName
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.eventName
+  nameWithType: AnalyticsEventRecord.eventName
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.eventRevenue
+  name: eventRevenue
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_eventRevenue
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.eventRevenue
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.eventRevenue
+  nameWithType: AnalyticsEventRecord.eventRevenue
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.kind
+  name: kind
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_kind
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.kind
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.kind
+  nameWithType: AnalyticsEventRecord.kind
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.mediationNetwork
+  name: mediationNetwork
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_mediationNetwork
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.mediationNetwork
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.mediationNetwork
+  nameWithType: AnalyticsEventRecord.mediationNetwork
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.monetizationNetwork
+  name: monetizationNetwork
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_monetizationNetwork
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.monetizationNetwork
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.monetizationNetwork
+  nameWithType: AnalyticsEventRecord.monetizationNetwork
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.parameters
+  name: parameters
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_parameters
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.parameters
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.parameters
+  nameWithType: AnalyticsEventRecord.parameters
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.provider
+  name: provider
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_provider
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.provider
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.provider
+  nameWithType: AnalyticsEventRecord.provider
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.sequence
+  name: sequence
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_sequence
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.sequence
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.sequence
+  nameWithType: AnalyticsEventRecord.sequence
+- uid: LHH.TestSDK.Analytics.AnalyticsEventRecord.timestampUtc
+  name: timestampUtc
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html#LHH_TestSDK_Analytics_AnalyticsEventRecord_timestampUtc
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventRecord.timestampUtc
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventRecord.timestampUtc
+  nameWithType: AnalyticsEventRecord.timestampUtc
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore
+  name: AnalyticsEventStore
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsEventStore
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore
+  nameWithType: AnalyticsEventStore
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.BufferCount
+  name: BufferCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_BufferCount
+  commentId: P:LHH.TestSDK.Analytics.AnalyticsEventStore.BufferCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.BufferCount
+  nameWithType: AnalyticsEventStore.BufferCount
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.BufferCount*
+  name: BufferCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_BufferCount_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.BufferCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.BufferCount
+  nameWithType: AnalyticsEventStore.BufferCount
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.Clear
+  name: Clear()
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_Clear
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventStore.Clear
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.Clear()
+  nameWithType: AnalyticsEventStore.Clear()
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.Clear*
+  name: Clear
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_Clear_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.Clear
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.Clear
+  nameWithType: AnalyticsEventStore.Clear
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.DefaultCapacity
+  name: DefaultCapacity
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_DefaultCapacity
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsEventStore.DefaultCapacity
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.DefaultCapacity
+  nameWithType: AnalyticsEventStore.DefaultCapacity
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.DroppedCount
+  name: DroppedCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_DroppedCount
+  commentId: P:LHH.TestSDK.Analytics.AnalyticsEventStore.DroppedCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.DroppedCount
+  nameWithType: AnalyticsEventStore.DroppedCount
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.DroppedCount*
+  name: DroppedCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_DroppedCount_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.DroppedCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.DroppedCount
+  nameWithType: AnalyticsEventStore.DroppedCount
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.HookInstalled
+  name: HookInstalled
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_HookInstalled
+  commentId: P:LHH.TestSDK.Analytics.AnalyticsEventStore.HookInstalled
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.HookInstalled
+  nameWithType: AnalyticsEventStore.HookInstalled
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.HookInstalled*
+  name: HookInstalled
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_HookInstalled_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.HookInstalled
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.HookInstalled
+  nameWithType: AnalyticsEventStore.HookInstalled
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.InstallTimeUtc
+  name: InstallTimeUtc
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_InstallTimeUtc
+  commentId: P:LHH.TestSDK.Analytics.AnalyticsEventStore.InstallTimeUtc
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.InstallTimeUtc
+  nameWithType: AnalyticsEventStore.InstallTimeUtc
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.InstallTimeUtc*
+  name: InstallTimeUtc
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_InstallTimeUtc_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.InstallTimeUtc
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.InstallTimeUtc
+  nameWithType: AnalyticsEventStore.InstallTimeUtc
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.MarkHookInstalled(System.String)
+  name: MarkHookInstalled(string)
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_MarkHookInstalled_System_String_
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventStore.MarkHookInstalled(System.String)
+  name.vb: MarkHookInstalled(String)
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.MarkHookInstalled(string)
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventStore.MarkHookInstalled(String)
+  nameWithType: AnalyticsEventStore.MarkHookInstalled(string)
+  nameWithType.vb: AnalyticsEventStore.MarkHookInstalled(String)
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.MarkHookInstalled*
+  name: MarkHookInstalled
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_MarkHookInstalled_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.MarkHookInstalled
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.MarkHookInstalled
+  nameWithType: AnalyticsEventStore.MarkHookInstalled
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.ProviderVersion
+  name: ProviderVersion
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_ProviderVersion
+  commentId: P:LHH.TestSDK.Analytics.AnalyticsEventStore.ProviderVersion
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.ProviderVersion
+  nameWithType: AnalyticsEventStore.ProviderVersion
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.ProviderVersion*
+  name: ProviderVersion
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_ProviderVersion_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.ProviderVersion
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.ProviderVersion
+  nameWithType: AnalyticsEventStore.ProviderVersion
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.Query(System.String,System.String,System.Int64,System.String,System.Int32)
+  name: Query(string, string, long, string, int)
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_Query_System_String_System_String_System_Int64_System_String_System_Int32_
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventStore.Query(System.String,System.String,System.Int64,System.String,System.Int32)
+  name.vb: Query(String, String, Long, String, Integer)
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.Query(string, string, long, string, int)
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventStore.Query(String, String, Long, String, Integer)
+  nameWithType: AnalyticsEventStore.Query(string, string, long, string, int)
+  nameWithType.vb: AnalyticsEventStore.Query(String, String, Long, String, Integer)
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.Query*
+  name: Query
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_Query_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.Query
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.Query
+  nameWithType: AnalyticsEventStore.Query
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordAdRevenue(System.String,System.String,System.String,System.String,System.String,System.Double,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: RecordAdRevenue(string, string, string, string, string, double, IDictionary<string, string>)
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_RecordAdRevenue_System_String_System_String_System_String_System_String_System_String_System_Double_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventStore.RecordAdRevenue(System.String,System.String,System.String,System.String,System.String,System.Double,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: RecordAdRevenue(String, String, String, String, String, Double, IDictionary(Of String, String))
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordAdRevenue(string, string, string, string, string, double, System.Collections.Generic.IDictionary<string, string>)
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordAdRevenue(String, String, String, String, String, Double, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: AnalyticsEventStore.RecordAdRevenue(string, string, string, string, string, double, IDictionary<string, string>)
+  nameWithType.vb: AnalyticsEventStore.RecordAdRevenue(String, String, String, String, String, Double, IDictionary(Of String, String))
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordAdRevenue*
+  name: RecordAdRevenue
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_RecordAdRevenue_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.RecordAdRevenue
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordAdRevenue
+  nameWithType: AnalyticsEventStore.RecordAdRevenue
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordSendEvent(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: RecordSendEvent(string, string, IDictionary<string, string>)
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_RecordSendEvent_System_String_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventStore.RecordSendEvent(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: RecordSendEvent(String, String, IDictionary(Of String, String))
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordSendEvent(string, string, System.Collections.Generic.IDictionary<string, string>)
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordSendEvent(String, String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: AnalyticsEventStore.RecordSendEvent(string, string, IDictionary<string, string>)
+  nameWithType.vb: AnalyticsEventStore.RecordSendEvent(String, String, IDictionary(Of String, String))
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordSendEvent*
+  name: RecordSendEvent
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_RecordSendEvent_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.RecordSendEvent
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.RecordSendEvent
+  nameWithType: AnalyticsEventStore.RecordSendEvent
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.RegisterHookProbe(System.Func{System.Boolean})
+  name: RegisterHookProbe(Func<bool>)
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_RegisterHookProbe_System_Func_System_Boolean__
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventStore.RegisterHookProbe(System.Func{System.Boolean})
+  name.vb: RegisterHookProbe(Func(Of Boolean))
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.RegisterHookProbe(System.Func<bool>)
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsEventStore.RegisterHookProbe(System.Func(Of Boolean))
+  nameWithType: AnalyticsEventStore.RegisterHookProbe(Func<bool>)
+  nameWithType.vb: AnalyticsEventStore.RegisterHookProbe(Func(Of Boolean))
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.RegisterHookProbe*
+  name: RegisterHookProbe
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_RegisterHookProbe_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.RegisterHookProbe
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.RegisterHookProbe
+  nameWithType: AnalyticsEventStore.RegisterHookProbe
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.ReinstallCount
+  name: ReinstallCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_ReinstallCount
+  commentId: P:LHH.TestSDK.Analytics.AnalyticsEventStore.ReinstallCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.ReinstallCount
+  nameWithType: AnalyticsEventStore.ReinstallCount
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.ReinstallCount*
+  name: ReinstallCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_ReinstallCount_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.ReinstallCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.ReinstallCount
+  nameWithType: AnalyticsEventStore.ReinstallCount
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.SnapshotAll
+  name: SnapshotAll()
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_SnapshotAll
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsEventStore.SnapshotAll
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.SnapshotAll()
+  nameWithType: AnalyticsEventStore.SnapshotAll()
+- uid: LHH.TestSDK.Analytics.AnalyticsEventStore.SnapshotAll*
+  name: SnapshotAll
+  href: api/LHH.TestSDK.Analytics.AnalyticsEventStore.html#LHH_TestSDK_Analytics_AnalyticsEventStore_SnapshotAll_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsEventStore.SnapshotAll
+  fullName: LHH.TestSDK.Analytics.AnalyticsEventStore.SnapshotAll
+  nameWithType: AnalyticsEventStore.SnapshotAll
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto
+  name: AnalyticsHookStatusDto
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsHookStatusDto
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto
+  nameWithType: AnalyticsHookStatusDto
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.#ctor
+  name: AnalyticsHookStatusDto()
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto__ctor
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.#ctor
+  name.vb: New()
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.AnalyticsHookStatusDto()
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.New()
+  nameWithType: AnalyticsHookStatusDto.AnalyticsHookStatusDto()
+  nameWithType.vb: AnalyticsHookStatusDto.New()
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.#ctor*
+  name: AnalyticsHookStatusDto
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto__ctor_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.#ctor
+  name.vb: New
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.AnalyticsHookStatusDto
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.New
+  nameWithType: AnalyticsHookStatusDto.AnalyticsHookStatusDto
+  nameWithType.vb: AnalyticsHookStatusDto.New
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.bufferCount
+  name: bufferCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto_bufferCount
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.bufferCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.bufferCount
+  nameWithType: AnalyticsHookStatusDto.bufferCount
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.droppedCount
+  name: droppedCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto_droppedCount
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.droppedCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.droppedCount
+  nameWithType: AnalyticsHookStatusDto.droppedCount
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.hookInstalled
+  name: hookInstalled
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto_hookInstalled
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.hookInstalled
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.hookInstalled
+  nameWithType: AnalyticsHookStatusDto.hookInstalled
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.installTimeUtc
+  name: installTimeUtc
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto_installTimeUtc
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.installTimeUtc
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.installTimeUtc
+  nameWithType: AnalyticsHookStatusDto.installTimeUtc
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.provider
+  name: provider
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto_provider
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.provider
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.provider
+  nameWithType: AnalyticsHookStatusDto.provider
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.providerVersion
+  name: providerVersion
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto_providerVersion
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.providerVersion
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.providerVersion
+  nameWithType: AnalyticsHookStatusDto.providerVersion
+- uid: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.reinstallCount
+  name: reinstallCount
+  href: api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html#LHH_TestSDK_Analytics_AnalyticsHookStatusDto_reinstallCount
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsHookStatusDto.reinstallCount
+  fullName: LHH.TestSDK.Analytics.AnalyticsHookStatusDto.reinstallCount
+  nameWithType: AnalyticsHookStatusDto.reinstallCount
+- uid: LHH.TestSDK.Analytics.AnalyticsParamEntry
+  name: AnalyticsParamEntry
+  href: api/LHH.TestSDK.Analytics.AnalyticsParamEntry.html
+  commentId: T:LHH.TestSDK.Analytics.AnalyticsParamEntry
+  fullName: LHH.TestSDK.Analytics.AnalyticsParamEntry
+  nameWithType: AnalyticsParamEntry
+- uid: LHH.TestSDK.Analytics.AnalyticsParamEntry.#ctor
+  name: AnalyticsParamEntry()
+  href: api/LHH.TestSDK.Analytics.AnalyticsParamEntry.html#LHH_TestSDK_Analytics_AnalyticsParamEntry__ctor
+  commentId: M:LHH.TestSDK.Analytics.AnalyticsParamEntry.#ctor
+  name.vb: New()
+  fullName: LHH.TestSDK.Analytics.AnalyticsParamEntry.AnalyticsParamEntry()
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsParamEntry.New()
+  nameWithType: AnalyticsParamEntry.AnalyticsParamEntry()
+  nameWithType.vb: AnalyticsParamEntry.New()
+- uid: LHH.TestSDK.Analytics.AnalyticsParamEntry.#ctor*
+  name: AnalyticsParamEntry
+  href: api/LHH.TestSDK.Analytics.AnalyticsParamEntry.html#LHH_TestSDK_Analytics_AnalyticsParamEntry__ctor_
+  commentId: Overload:LHH.TestSDK.Analytics.AnalyticsParamEntry.#ctor
+  name.vb: New
+  fullName: LHH.TestSDK.Analytics.AnalyticsParamEntry.AnalyticsParamEntry
+  fullName.vb: LHH.TestSDK.Analytics.AnalyticsParamEntry.New
+  nameWithType: AnalyticsParamEntry.AnalyticsParamEntry
+  nameWithType.vb: AnalyticsParamEntry.New
+- uid: LHH.TestSDK.Analytics.AnalyticsParamEntry.key
+  name: key
+  href: api/LHH.TestSDK.Analytics.AnalyticsParamEntry.html#LHH_TestSDK_Analytics_AnalyticsParamEntry_key
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsParamEntry.key
+  fullName: LHH.TestSDK.Analytics.AnalyticsParamEntry.key
+  nameWithType: AnalyticsParamEntry.key
+- uid: LHH.TestSDK.Analytics.AnalyticsParamEntry.value
+  name: value
+  href: api/LHH.TestSDK.Analytics.AnalyticsParamEntry.html#LHH_TestSDK_Analytics_AnalyticsParamEntry_value
+  commentId: F:LHH.TestSDK.Analytics.AnalyticsParamEntry.value
+  fullName: LHH.TestSDK.Analytics.AnalyticsParamEntry.value
+  nameWithType: AnalyticsParamEntry.value

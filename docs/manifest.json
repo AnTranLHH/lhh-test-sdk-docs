@@ -13,6 +13,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Global.LHH_RescueTestRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LHH_RescueTestRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH_RescueTestRecord",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.LHH_TestSDK.Rescue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LHH_TestSDK.Rescue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH_TestSDK.Rescue",
+      "Summary": "<p sourcefile=\"api/Global.LHH_TestSDK.Rescue.yml\" sourcestartlinenumber=\"1\">Global agent-rescue configuration (Editor window / env). Snapshot is refreshed on the main thread.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Global.LHH_TestSDK.yml",
       "output": {
         ".html": {
@@ -27,6 +55,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Global.RescueOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.RescueOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RescueOptions",
+      "Summary": "<p sourcefile=\"api/Global.RescueOptions.yml\" sourcestartlinenumber=\"1\">Per-call override for agent rescue on a wait or check API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.RescueRunner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.RescueRunner.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RescueRunner",
+      "Summary": "<p sourcefile=\"api/Global.RescueRunner.yml\" sourcestartlinenumber=\"1\">Agent CLI runner selected in the Test SDK window.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Global.yml",
       "output": {
         ".html": {
@@ -37,6 +93,132 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsCommandNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsCommandNames.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsCommandNames",
+      "Summary": "<p sourcefile=\"api/LHH.TestSDK.Analytics.AnalyticsCommandNames.yml\" sourcestartlinenumber=\"1\">Wire strings for analytics hub commands (must match controller <code>Lhh.TestController.Shared</code> values).\nDefined locally so games are not forced to bump <code>com.lhh.testcontroller.shared</code> for analytics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsCommandPayload.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsCommandPayload",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsEventKind",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventListDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventListDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsEventListDto",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsEventRecord",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsEventStore.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsEventStore",
+      "Summary": "<p sourcefile=\"api/LHH.TestSDK.Analytics.AnalyticsEventStore.yml\" sourcestartlinenumber=\"1\">Thread-safe bounded ring buffer for recorded in-app analytics events (automation / dev builds).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsHookStatusDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsHookStatusDto",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.AnalyticsParamEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.AnalyticsParamEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics.AnalyticsParamEntry",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LHH.TestSDK.Analytics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LHH.TestSDK.Analytics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LHH.TestSDK.Analytics",
       "Summary": null
     },
     {
