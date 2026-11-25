@@ -157,6 +157,21 @@ references:
   commentId: Overload:Global.LHH_TestSDK.DeleteGameData
   fullName: LHH_TestSDK.DeleteGameData
   nameWithType: LHH_TestSDK.DeleteGameData
+- uid: Global.LHH_TestSDK.DismissMaxDebugger(System.Single)
+  name: DismissMaxDebugger(float)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_DismissMaxDebugger_System_Single_
+  commentId: M:Global.LHH_TestSDK.DismissMaxDebugger(System.Single)
+  name.vb: DismissMaxDebugger(Single)
+  fullName: LHH_TestSDK.DismissMaxDebugger(float)
+  fullName.vb: LHH_TestSDK.DismissMaxDebugger(Single)
+  nameWithType: LHH_TestSDK.DismissMaxDebugger(float)
+  nameWithType.vb: LHH_TestSDK.DismissMaxDebugger(Single)
+- uid: Global.LHH_TestSDK.DismissMaxDebugger*
+  name: DismissMaxDebugger
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_DismissMaxDebugger_
+  commentId: Overload:Global.LHH_TestSDK.DismissMaxDebugger
+  fullName: LHH_TestSDK.DismissMaxDebugger
+  nameWithType: LHH_TestSDK.DismissMaxDebugger
 - uid: Global.LHH_TestSDK.GetAnalyticsEvents(System.String,System.String,System.Int64,System.String,System.Int32)
   name: GetAnalyticsEvents(string, string, long, string, int)
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_GetAnalyticsEvents_System_String_System_String_System_Int64_System_String_System_Int32_
@@ -229,6 +244,60 @@ references:
   commentId: Overload:Global.LHH_TestSDK.GetText
   fullName: LHH_TestSDK.GetText
   nameWithType: LHH_TestSDK.GetText
+- uid: Global.LHH_TestSDK.InvokeMethod(System.String,System.String,System.String,System.Object[])
+  name: InvokeMethod(string, string, string, params object[])
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_InvokeMethod_System_String_System_String_System_String_System_Object___
+  commentId: M:Global.LHH_TestSDK.InvokeMethod(System.String,System.String,System.String,System.Object[])
+  name.vb: InvokeMethod(String, String, String, ParamArray Object())
+  fullName: LHH_TestSDK.InvokeMethod(string, string, string, params object[])
+  fullName.vb: LHH_TestSDK.InvokeMethod(String, String, String, ParamArray Object())
+  nameWithType: LHH_TestSDK.InvokeMethod(string, string, string, params object[])
+  nameWithType.vb: LHH_TestSDK.InvokeMethod(String, String, String, ParamArray Object())
+- uid: Global.LHH_TestSDK.InvokeMethod*
+  name: InvokeMethod
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_InvokeMethod_
+  commentId: Overload:Global.LHH_TestSDK.InvokeMethod
+  fullName: LHH_TestSDK.InvokeMethod
+  nameWithType: LHH_TestSDK.InvokeMethod
+- uid: Global.LHH_TestSDK.InvokeMethod``1(System.String,System.String,System.String,System.Object[])
+  name: InvokeMethod<T>(string, string, string, params object[])
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_InvokeMethod__1_System_String_System_String_System_String_System_Object___
+  commentId: M:Global.LHH_TestSDK.InvokeMethod``1(System.String,System.String,System.String,System.Object[])
+  name.vb: InvokeMethod(Of T)(String, String, String, ParamArray Object())
+  fullName: LHH_TestSDK.InvokeMethod<T>(string, string, string, params object[])
+  fullName.vb: LHH_TestSDK.InvokeMethod(Of T)(String, String, String, ParamArray Object())
+  nameWithType: LHH_TestSDK.InvokeMethod<T>(string, string, string, params object[])
+  nameWithType.vb: LHH_TestSDK.InvokeMethod(Of T)(String, String, String, ParamArray Object())
+- uid: Global.LHH_TestSDK.ListAvailableDevicesAsync(System.Boolean,System.String)
+  name: ListAvailableDevicesAsync(bool, string?)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ListAvailableDevicesAsync_System_Boolean_System_String_
+  commentId: M:Global.LHH_TestSDK.ListAvailableDevicesAsync(System.Boolean,System.String)
+  name.vb: ListAvailableDevicesAsync(Boolean, String)
+  fullName: LHH_TestSDK.ListAvailableDevicesAsync(bool, string?)
+  fullName.vb: LHH_TestSDK.ListAvailableDevicesAsync(Boolean, String)
+  nameWithType: LHH_TestSDK.ListAvailableDevicesAsync(bool, string?)
+  nameWithType.vb: LHH_TestSDK.ListAvailableDevicesAsync(Boolean, String)
+- uid: Global.LHH_TestSDK.ListAvailableDevicesAsync*
+  name: ListAvailableDevicesAsync
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ListAvailableDevicesAsync_
+  commentId: Overload:Global.LHH_TestSDK.ListAvailableDevicesAsync
+  fullName: LHH_TestSDK.ListAvailableDevicesAsync
+  nameWithType: LHH_TestSDK.ListAvailableDevicesAsync
+- uid: Global.LHH_TestSDK.ListAvailableDevicesFromControllerAsync(System.Boolean,System.String)
+  name: ListAvailableDevicesFromControllerAsync(bool, string?)
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ListAvailableDevicesFromControllerAsync_System_Boolean_System_String_
+  commentId: M:Global.LHH_TestSDK.ListAvailableDevicesFromControllerAsync(System.Boolean,System.String)
+  name.vb: ListAvailableDevicesFromControllerAsync(Boolean, String)
+  fullName: LHH_TestSDK.ListAvailableDevicesFromControllerAsync(bool, string?)
+  fullName.vb: LHH_TestSDK.ListAvailableDevicesFromControllerAsync(Boolean, String)
+  nameWithType: LHH_TestSDK.ListAvailableDevicesFromControllerAsync(bool, string?)
+  nameWithType.vb: LHH_TestSDK.ListAvailableDevicesFromControllerAsync(Boolean, String)
+- uid: Global.LHH_TestSDK.ListAvailableDevicesFromControllerAsync*
+  name: ListAvailableDevicesFromControllerAsync
+  href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_ListAvailableDevicesFromControllerAsync_
+  commentId: Overload:Global.LHH_TestSDK.ListAvailableDevicesFromControllerAsync
+  fullName: LHH_TestSDK.ListAvailableDevicesFromControllerAsync
+  nameWithType: LHH_TestSDK.ListAvailableDevicesFromControllerAsync
 - uid: Global.LHH_TestSDK.LogError(System.String)
   name: LogError(string)
   href: api/Global.LHH_TestSDK.html#Global_LHH_TestSDK_LogError_System_String_

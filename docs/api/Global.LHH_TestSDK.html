@@ -480,6 +480,74 @@ The player build must define DEVELOPMENT_MODE; otherwise the call fails with a m
   </table>
 
 
+  <a id="Global_LHH_TestSDK_DismissMaxDebugger_" data-uid="Global.LHH_TestSDK.DismissMaxDebugger*"></a>
+  <h4 id="Global_LHH_TestSDK_DismissMaxDebugger_System_Single_" data-uid="Global.LHH_TestSDK.DismissMaxDebugger(System.Single)">DismissMaxDebugger(float)</h4>
+  <div class="markdown level1 summary"><p>Waits for the AppLovin MAX Mediation Debugger on the leased device and dismisses it with the system Back action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; DismissMaxDebugger(float timeoutSeconds = 50)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">timeoutSeconds</span></td>
+        <td><p>Maximum seconds to wait for the debugger before returning false. Default is 50.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><p>True if the debugger was visible and Back was sent; false if it did not appear before <code class="paramref">timeoutSeconds</code> elapses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_DismissMaxDebugger_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. The Test Controller polls the device through Appium
+(current activity and page source) and sends Back when the MAX debugger is showing.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_DismissMaxDebugger_System_Single__examples">Examples</h5>
+  <pre><code class="lang-csharp">bool dismissed = await LHH_TestSDK.DismissMaxDebugger();</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="Global_LHH_TestSDK_GetAnalyticsEvents_" data-uid="Global.LHH_TestSDK.GetAnalyticsEvents*"></a>
   <h4 id="Global_LHH_TestSDK_GetAnalyticsEvents_System_String_System_String_System_Int64_System_String_System_Int32_" data-uid="Global.LHH_TestSDK.GetAnalyticsEvents(System.String,System.String,System.Int64,System.String,System.Int32)">GetAnalyticsEvents(string, string, long, string, int)</h4>
   <div class="markdown level1 summary"><p>Returns recorded in-app analytics events from the game player, optionally filtered.</p>
@@ -830,6 +898,293 @@ Assert.IsTrue(int.TryParse(label, out int coins));</code></pre>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeoutexception">TimeoutException</a></td>
         <td><p>Object not found before <code class="paramref">timeoutSeconds</code> elapses.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_InvokeMethod_" data-uid="Global.LHH_TestSDK.InvokeMethod*"></a>
+  <h4 id="Global_LHH_TestSDK_InvokeMethod_System_String_System_String_System_String_System_Object___" data-uid="Global.LHH_TestSDK.InvokeMethod(System.String,System.String,System.String,System.Object[])">InvokeMethod(string, string, string, params object[])</h4>
+  <div class="markdown level1 summary"><p>Invokes an instance method on a component in the game player and returns the result as a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; InvokeMethod(string objectPath, string componentName, string methodName, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">objectPath</span></td>
+        <td><p>Hierarchy path with / separators (same rules as WaitForObject).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">componentName</span></td>
+        <td><p>Component type name or full name on that GameObject.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">methodName</span></td>
+        <td><p>Instance method name. Matched with the argument count.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments sent as a JSON array. Primitives, enums, strings, and JsonUtility objects are supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><p>Return value encoded as a string. Null when the method returns void, Task, or null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_InvokeMethod_System_String_System_String_System_String_System_Object____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Public and non-public instance methods are eligible.
+Task and Task&lt;T&gt; results are awaited on the player. Other return values are serialized with JsonUtility when they are not primitives, enums, or strings.
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_InvokeMethod_System_String_System_String_System_String_System_Object____examples">Examples</h5>
+  <pre><code class="lang-csharp">await LHH_TestSDK.InvokeMethod("Game/Wallet", "Wallet", "AddCoins", 100);
+string label = await LHH_TestSDK.InvokeMethod("Game/Hud", "HudView", "GetLabel");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, the player rejected the call, or arguments could not be serialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_InvokeMethod_" data-uid="Global.LHH_TestSDK.InvokeMethod*"></a>
+  <h4 id="Global_LHH_TestSDK_InvokeMethod__1_System_String_System_String_System_String_System_Object___" data-uid="Global.LHH_TestSDK.InvokeMethod``1(System.String,System.String,System.String,System.Object[])">InvokeMethod&lt;T&gt;(string, string, string, params object[])</h4>
+  <div class="markdown level1 summary"><p>Invokes an instance method on a component and deserializes the string result as <code class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; InvokeMethod&lt;T&gt;(string objectPath, string componentName, string methodName, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">objectPath</span></td>
+        <td><p>Hierarchy path with / separators (same rules as WaitForObject).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">componentName</span></td>
+        <td><p>Component type name or full name on that GameObject.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">methodName</span></td>
+        <td><p>Instance method name. Matched with the argument count.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments sent as a JSON array. Primitives, enums, strings, and JsonUtility objects are supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</td>
+        <td><p>Deserialized return value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Global_LHH_TestSDK_InvokeMethod__1_System_String_System_String_System_String_System_Object____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs implicit setup on first use. Strings are returned as-is. Primitives and enums are parsed from the returned text.
+Other types use JsonUtility.FromJson.
+The player build must define DEVELOPMENT_MODE; otherwise the call fails with a message containing &quot;requires DEVELOPMENT_MODE&quot;.</p>
+</div>
+  <h5 id="Global_LHH_TestSDK_InvokeMethod__1_System_String_System_String_System_String_System_Object____examples">Examples</h5>
+  <pre><code class="lang-csharp">int coins = await LHH_TestSDK.InvokeMethod&lt;int&gt;("Game/Wallet", "Wallet", "GetCoins");</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Setup failed, the player rejected the call, or the result could not be deserialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_ListAvailableDevicesAsync_" data-uid="Global.LHH_TestSDK.ListAvailableDevicesAsync*"></a>
+  <h4 id="Global_LHH_TestSDK_ListAvailableDevicesAsync_System_Boolean_System_String_" data-uid="Global.LHH_TestSDK.ListAvailableDevicesAsync(System.Boolean,System.String)">ListAvailableDevicesAsync(bool, string?)</h4>
+  <div class="markdown level1 summary"><p>Queries the Test Controller for managed devices (refreshes ADB discovery on the server).
+Requires an established gRPC channel; call after setup or use <a class="xref" href="Global.LHH_TestSDK.html#LHH_TestSDK_ListAvailableDevicesFromControllerAsync_System_Boolean_System_String_">ListAvailableDevicesFromControllerAsync(bool, string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;ListAvailableDevicesResponse&gt; ListAvailableDevicesAsync(bool onlyClaimable = false, string? avdName = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">onlyClaimable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">avdName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">ListAvailableDevicesResponse</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Global_LHH_TestSDK_ListAvailableDevicesFromControllerAsync_" data-uid="Global.LHH_TestSDK.ListAvailableDevicesFromControllerAsync*"></a>
+  <h4 id="Global_LHH_TestSDK_ListAvailableDevicesFromControllerAsync_System_Boolean_System_String_" data-uid="Global.LHH_TestSDK.ListAvailableDevicesFromControllerAsync(System.Boolean,System.String)">ListAvailableDevicesFromControllerAsync(bool, string?)</h4>
+  <div class="markdown level1 summary"><p>Opens a channel to the configured controller and returns the current device pool listing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;ListAvailableDevicesResponse&gt; ListAvailableDevicesFromControllerAsync(bool onlyClaimable = false, string? avdName = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">onlyClaimable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">avdName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">ListAvailableDevicesResponse</span>&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

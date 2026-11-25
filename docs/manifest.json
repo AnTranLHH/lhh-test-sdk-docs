@@ -12,6 +12,149 @@
       }
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/analytics.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/analytics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/game-data.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/game-data.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/gestures.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/gestures.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/iap.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/iap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/logs.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/logs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/max-debugger.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/max-debugger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/rescue.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/rescue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/screenshots.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/screenshots.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/session-setup.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/session-setup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/taps-clicks.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/taps-clicks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api-by-category/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/toc.html"
+        },
+        ".json": {
+          "relative_path": "api-by-category/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/ui-text.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/ui-text.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api-by-category/waits-queries.md",
+      "output": {
+        ".html": {
+          "relative_path": "api-by-category/waits-queries.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "ManagedReference",
       "source_relative_path": "api/Global.LHH_RescueTestRecord.yml",
       "output": {
@@ -23,7 +166,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "LHH_RescueTestRecord",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/Global.LHH_RescueTestRecord.yml\" sourcestartlinenumber=\"1\">One agent-rescue attempt recorded during a test run.</p>\n"
     },
     {
       "type": "ManagedReference",
